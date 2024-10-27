@@ -1,0 +1,261 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.order-btn {
+    background-color: #ff7f50;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+/* Hero Section Styling */
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    height: 80vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+}
+
+.hero-content .btn {
+    background-color: #ff7f50;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+/* Menu Section Styling */
+.menu-section {
+    padding: 50px;
+    background-color: #fff;
+}
+
+.menu-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cocktails {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cocktail {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.cocktail img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.cocktail h3 {
+    margin-top: 10px;
+}
+
+/* Events Section Styling */
+.events-section {
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+.event {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Contact Section Styling */
+.contact-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.contact-section form {
+    margin: 0 auto;
+    width: 300px;
+}
+
+.contact-section input, 
+.contact-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-section .btn {
+    background-color: #ff7f50;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+footer .social-media a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+
+/* Media Queries */
+
+/* Tablets (Portrait and Landscape) */
+@media screen and (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .cocktails {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cocktail {
+        width: 80%;
+    }
+}
+
+/* Mobile (Landscape) */
+@media screen and (max-width: 768px) {
+    .hero {
+        height: 60vh;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .menu-section {
+        padding: 30px;
+    }
+
+    .cocktail {
+        width: 90%;
+        margin: 20px 0;
+    }
+
+    .contact-section form {
+        width: 90%;
+    }
+}
+
+/* Mobile (Portrait) */
+@media screen and (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .nav-links li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .menu-section {
+        padding: 20px;
+    }
+
+    .cocktail {
+        width: 100%;
+    }
+
+    .events-section, .contact-section {
+        padding: 20px;
+    }
+
+    .contact-section form {
+        width: 100%;
+    }
+}
