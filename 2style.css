@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -15,14 +16,24 @@ a {
     transition: color 0.3s ease;
 }
 
+/* Redesigned header */
 header {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     color: grey;
     padding: 1rem;
     position: fixed;
     top: 0;
+    width: 100%;
     z-index: 100;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+
+header.fade-in {
+    opacity: 1;
+}
+
+header.fade-out {
+    opacity: 0;
 }
 
 nav {
@@ -67,12 +78,12 @@ nav {
     background-color: #e56b3f;
 }
 
-
+/* Hero section */
 .hero {
     background: url('background.jpg') no-repeat center center/cover;
     height: 80vh;
     color: white;
-    width:90%;
+    width: 90%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -106,7 +117,7 @@ nav {
     background-color: #e56b3f;
 }
 
-
+/* Menu section */
 .menu-section {
     padding: 50px;
     background-color: #fff;
@@ -141,167 +152,24 @@ nav {
 .cocktail img {
     max-width: 100%;
     border-radius: 10px;
+    animation: imageFadeIn 1s ease-in-out;
 }
 
 .cocktail h3 {
     margin-top: 10px;
 }
 
-
+/* Redesigned footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #222;
+    color: #ddd;
     text-align: center;
     padding: 20px;
     margin-top: 50px;
 }
 
 footer .social-media a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer .social-media a:hover {
-    color: #ff7f50;
-}
-
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.nav-links {
-    list-style: none;
-}
-
-.nav-links li {
-    display: inline-block;
-    margin-left: 20px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #ff7f50;
-}
-
-.order-btn {
-    background-color: #ff7f50;
-    padding: 10px 20px;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.order-btn:hover {
-    background-color: #e56b3f;
-}
-
-
-.hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
-    height: 80vh;
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-content {
-    animation: fadeIn 2s ease;
-}
-
-.hero-content h2 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-}
-
-.hero-content .btn {
-    background-color: #ff7f50;
-    padding: 10px 20px;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.hero-content .btn:hover {
-    background-color: #e56b3f;
-}
-
-
-.menu-section {
-    padding: 50px;
-    background-color: #fff;
-}
-
-.menu-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    animation: fadeIn 1.5s ease;
-}
-
-.cocktails {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.cocktail {
-    background-color: #f8f8f8;
-    padding: 20px;
-    text-align: center;
-    width: 250px;
-    margin: 10px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.cocktail:hover {
-    transform: scale(1.05);
-}
-
-.cocktail img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.cocktail h3 {
-    margin-top: 10px;
-}
-
-/* Events Section Styling */
-.
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-}
-
-footer .social-media a {
-    color: white;
+    color: #ddd;
     margin: 0 10px;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -321,7 +189,18 @@ footer .social-media a:hover {
     }
 }
 
+@keyframes imageFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
+/* Responsive Styles */
 @media screen and (max-width: 1024px) {
     nav {
         flex-direction: column;
@@ -346,7 +225,6 @@ footer .social-media a:hover {
         width: 80%;
     }
 }
-
 
 @media screen and (max-width: 768px) {
     .hero {
@@ -396,6 +274,4 @@ footer .social-media a:hover {
     .cocktail {
         width: 100%;
     }
-
-    
 }
