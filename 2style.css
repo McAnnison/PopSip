@@ -19,7 +19,7 @@ header {
     background-color: white;
     color: grey;
     padding: 1rem;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
     transition: background-color 0.5s ease;
@@ -46,14 +46,14 @@ nav {
 }
 
 .nav-links a {
-    color: #fff;
+    color: grey;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #ff7f50;
+    color: black;
 }
 
 .order-btn {
@@ -72,7 +72,7 @@ nav {
     background: url('background.jpg') no-repeat center center/cover;
     height: 80vh;
     color: white;
-    width:100%;
+    width:90%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -290,60 +290,7 @@ nav {
 }
 
 /* Events Section Styling */
-.events-section {
-    padding: 50px;
-    background-color: #f4f4f4;
-}
-
-.event {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.event:hover {
-    transform: scale(1.05);
-}
-
-
-.contact-section {
-    padding: 50px;
-    text-align: center;
-}
-
-.contact-section form {
-    margin: 0 auto;
-    width: 300px;
-}
-
-.contact-section input, 
-.contact-section textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.contact-section input:focus, 
-.contact-section textarea:focus {
-    background-color: #e0e0e0;
-}
-
-.contact-section .btn {
-    background-color: #ff7f50;
-    padding: 10px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.contact-section .btn:hover {
-    background-color: #e56b3f;
-}
-
+.
 
 footer {
     background-color: #333;
@@ -450,11 +397,5 @@ footer .social-media a:hover {
         width: 100%;
     }
 
-    .events-section, .contact-section {
-        padding: 20px;
-    }
-
-    .contact-section form {
-        width: 100%;
-    }
+    
 }
