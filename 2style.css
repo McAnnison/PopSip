@@ -16,8 +16,8 @@ a {
 }
 
 header {
-    background-color: rgb(243, 224, 52);
-    color: #fff;
+    background-color: white;
+    color: grey;
     padding: 1rem;
     position: sticky;
     top: 0;
@@ -72,6 +72,7 @@ nav {
     background: url('background.jpg') no-repeat center center/cover;
     height: 80vh;
     color: white;
+    width:100%;
     text-align: center;
     display: flex;
     justify-content: center;
