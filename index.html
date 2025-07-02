@@ -10,6 +10,29 @@
         body { font-family: 'Montserrat', Arial, sans-serif; margin: 0; background: #f7f7f7; }
         header, footer { background: #fff; box-shadow: 0 2px 8px #eee; }
         header { position: relative; top: 0; z-index: 1000; }
+        /* Hamburger styles */
+.hamburger {
+  display: none;  flex-direction: column;  justify-content: center;  width: 35px;  height: 35px;  background: none;  border: none;  cursor: pointer;  z-index: 1201;}
+.hamburger span {  display: block;  height: 4px;  width: 28px;  background: #b85d1c;  border-radius: 2px;  margin: 4px 0;  transition: 0.3s;}
+
+/* Mobile menu styles */
+.mobile-menu {  position: fixed;  top: 0;  left: -250px;  width: 220px;  height: 100%;  background: #fff;  box-shadow: 2px 0 12px #0002;  z-index: 1200;  transition: left 0.3s;  display: flex;  flex-direction: column;  padding: 30px 18px;}
+.mobile-menu ul {
+  list-style: none;  padding: 0;  margin: 40px 0 0 0;  display: flex;  flex-direction: column;  gap: 20px;}
+.mobile-menu .order-btn {  background: #b85d1c;  color: #fff;  padding: 9px 20px;  border-radius: 5px;}
+  .mobile-menu .close-menu {  background: none;  border: none;  font-size: 2.5rem;  color: #b85d1c;  position: absolute;  top: 18px;  right: 15px;  cursor: pointer;
+}
+
+/* Show hamburger and hide nav-links on small screens */
+@media (max-width: 800px) {
+  .nav-links { display: none !important; }
+  .hamburger { display: flex; }
+}
+
+/* Show mobile menu when active */
+.mobile-menu.active {
+  left: 0;
+}
         nav { display: flex; align-items: center; justify-content: space-between; padding: 20px; }
         .logo img { width: 50px; vertical-align: middle; }
         .logo h1 { display: inline; font-size: 2rem; margin-left: 10px; color: #b85d1c; }
@@ -84,18 +107,31 @@
 
 <header>
     <nav>
-        <div class="logo">
-            <img src="logo.png" alt="PopSip Cocktails Logo">
-            <h1>PopSip Cocktails</h1>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#menu">Cocktails</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#order" class="order-btn">Book Now</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-        </ul>
-    </nav>
+  <div class="logo">
+    <img src="logo.png" alt="PopSip Cocktails Logo">
+    <h1>PopSip Cocktails</h1>
+  </div>
+  <button class="hamburger" aria-label="Open Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#menu">Cocktails</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#order" class="order-btn">Book Now</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <div class="mobile-menu">
+    <button class="close-menu" aria-label="Close Menu">&times;</button>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Cocktails</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#order" class="order-btn">Book Now</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
 </header>
 
 <section id="home" class="hero">
