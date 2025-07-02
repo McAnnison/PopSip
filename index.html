@@ -40,7 +40,13 @@
         .nav-links li a { text-decoration: none; color: #333; font-weight: 600; }
         .order-btn { background: #b85d1c; color: #fff; padding: 9px 20px; border-radius: 5px; }
         .hero { background: url('background.jpg') center/cover no-repeat; color: #fff; text-align: center; padding: 100px 20px 60px; }
-        .hero-content { background: rgba(0,0,0,0.5); display: inline-block; padding: 40px 30px; border-radius: 18px; }
+       .hero-content {
+    display: none;
+    /* Optionally add transition effects here */
+}
+.hero-content.active {
+    display: block;
+}
         .hero img { display: none; }
 
         .menu-section { padding: 60px 10vw; background: #fff; }
@@ -408,6 +414,28 @@
       document.body.style.overflow = '';
     });
   });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('#home .hero-content');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Show first slide
+    showSlide(currentSlide);
+
+    // Change slide every 5 seconds (5000 ms)
+    setInterval(nextSlide, 5000);
+});
 
 </script>
 </body>
