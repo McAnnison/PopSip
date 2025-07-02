@@ -139,6 +139,14 @@
         <h2>Crafted Cocktails Delivered to Your Event</h2>
         <p>Explore our signature and classic cocktails, expertly mixed for your special occasions. Book our service for weddings, parties, and corporate events!</p>
     </div>
+     <div class="hero-content">
+        <h2>Crafted Cocktails Delivered to Your Event</h2>
+        <p>Explore our signature and classic cocktails, expertly mixed for your special occasions. Book our service for weddings, parties, and corporate events!</p>
+    </div>
+     <div class="hero-content">
+        <h2>Crafted Cocktails Delivered to Your Event</h2>
+        <p>Explore our signature and classic cocktails, expertly mixed for your special occasions. Book our service for weddings, parties, and corporate events!</p>
+    </div>
 </section>
 
 <section id="menu" class="menu-section">
@@ -376,6 +384,32 @@
 
     // Initial calculation
     calculateTotal();
+
+    <script>
+  // Hamburger menu logic
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const closeMenuBtn = document.querySelector('.close-menu');
+  const navLinks = document.querySelectorAll('.mobile-menu ul a');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  });
+
+  closeMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Hide menu when a link is clicked (optional)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </script>
 </body>
 </html>
