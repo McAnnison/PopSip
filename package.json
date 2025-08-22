@@ -1,0 +1,25 @@
+{
+  "name": "popsip-cocktails",
+  "version": "1.0.0",
+  "description": "PopSip Cocktails - A cocktail ordering website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "build": "echo \"No build process required for static website\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/McAnnison/PopSip.git"
+  },
+  "keywords": [
+    "cocktails",
+    "website",
+    "static"
+  ],
+  "author": "McAnnison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/McAnnison/PopSip/issues"
+  },
+  "homepage": "https://github.com/McAnnison/PopSip#readme"
+}
