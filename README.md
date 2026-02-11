@@ -1,12 +1,9 @@
-Here’s a clean, professional README.md suitable for GitHub.
-No playful tone, no embellishments, just a solid, developer-friendly document.
-
 ---
 
 # README.md
 
 ```markdown
-# MixMaster Booking Platform  
+# PopSip Cocktail Booking Platform  
 A full-service booking platform for cocktail catering and professional bartending services. Customers can browse cocktail packages, hire bartenders for events, customize drink menus, and manage payments and bookings through an intuitive dashboard. Administrators and staff gain access to management tools, booking calendars, analytics, and service workflows.
 
 ---
@@ -193,7 +190,7 @@ A full ER diagram is maintained in `/docs/database/erd.png`.
 
 Clone repository:
 ```bash
-git clone https://github.com/<your-username>/mixmaster.git
+git clone https://github.com/<your-username>/popsip.git
 cd mixmaster
 ````
 
