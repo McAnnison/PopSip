@@ -1,8 +1,4 @@
----
-
-# README.md
-
-```markdown
+```
 # PopSip Cocktail Booking Platform  
 A full-service booking platform for cocktail catering and professional bartending services. Customers can browse cocktail packages, hire bartenders for events, customize drink menus, and manage payments and bookings through an intuitive dashboard. Administrators and staff gain access to management tools, booking calendars, analytics, and service workflows.
 
