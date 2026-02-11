@@ -5,6 +5,9 @@ A full-service booking platform for cocktail catering and professional bartendin
 ---
 
 ## Project Structure
+```
+# PopSip Cocktail Booking Platform  
+A full-service booking platform for cocktail catering and professional bartending services. Customers can browse cocktail packages, hire bartenders for events, customize drink menus, and manage payments and bookings through an intuitive dashboard. Administrators and staff gain access to management tools, booking calendars, analytics, and service workflows.
 
 This is a monorepo containing both frontend and backend applications:
 
@@ -155,6 +158,11 @@ See the backend README for more details.
 ## Database Schema
 
 The database includes the following main tables:
+Clone repository:
+```bash
+git clone https://github.com/<your-username>/popsip.git
+cd mixmaster
+````
 
 - **users** - User accounts
 - **bartenders** - Bartender profiles
