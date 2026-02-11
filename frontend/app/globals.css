@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: white;
+    color: rgb(23, 23, 23);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}

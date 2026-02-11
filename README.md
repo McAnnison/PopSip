@@ -1,250 +1,218 @@
-Here’s a clean, professional README.md suitable for GitHub.
-No playful tone, no embellishments, just a solid, developer-friendly document.
+# MixMaster Booking Platform
+
+A full-service booking platform for cocktail catering and professional bartending services. Customers can browse cocktail packages, hire bartenders for events, customize drink menus, and manage payments and bookings through an intuitive dashboard.
 
 ---
 
-# README.md
+## Project Structure
 
-```markdown
-# MixMaster Booking Platform  
-A full-service booking platform for cocktail catering and professional bartending services. Customers can browse cocktail packages, hire bartenders for events, customize drink menus, and manage payments and bookings through an intuitive dashboard. Administrators and staff gain access to management tools, booking calendars, analytics, and service workflows.
+This is a monorepo containing both frontend and backend applications:
 
----
-
-## Table of Contents
-- [Overview](#overview)  
-- [Features](#features)  
-  - [Customer Features](#customer-features)  
-  - [Admin Features](#admin-features)  
-  - [Bartender/Staff Features](#bartenderstaff-features)
-- [Tech Stack](#tech-stack)  
-- [System Architecture](#system-architecture)  
-- [Folder Structure](#folder-structure)  
-- [API Documentation](#api-documentation)  
-- [Database Schema](#database-schema)
-- [Installation](#installation)  
-- [Environment Variables](#environment-variables)  
-- [Running the Project](#running-the-project)  
-- [Contributing](#contributing)  
-- [License](#license)
-
----
-
-## Overview
-MixMaster is a modern service-booking platform designed for cocktail caterers and mobile bartending businesses. It streamlines the customer journey from selecting a service package to payment, booking confirmation, and event-day coordination.
-
-The platform includes:
-- Customer-facing web app  
-- Admin dashboard  
-- Staff portal  
-- Real-time messaging and notifications  
-- Automated scheduling and staff assignment  
-
----
-
-## Features
-
-### Customer Features
-- Browse cocktail packages  
-- View bartender profiles  
-- Customize drink menus and add-ons  
-- Real-time availability checking  
-- Event scheduling  
-- Booking management dashboard  
-- Secure online payments (deposit or full payment)  
-- In-app messaging and notifications  
-- Email/SMS updates  
-
-### Admin Features
-- Manage cocktail packages and pricing  
-- Manage bartenders and staff  
-- Booking and availability calendar  
-- Assign staff to events  
-- Track payments and generate reports  
-- Inventory and equipment (optional)  
-- Customer service communication  
-- Analytics dashboard (revenue, usage, trends)
-
-### Bartender/Staff Features
-- View assigned events  
-- Receive event details and updates  
-- Confirm attendance  
-- In-app messaging with admin  
-- Access event checklists and requirements  
+```
+PopSip/
+├── frontend/          # Next.js frontend application
+│   ├── app/          # Next.js pages and layouts
+│   ├── components/   # React components (including shadcn/ui)
+│   ├── lib/          # Utilities and helpers
+│   └── ...
+├── backend/          # Node.js + Express backend API
+│   ├── src/          # TypeScript source code
+│   │   ├── config/   # Configuration files
+│   │   ├── controllers/ # Route controllers
+│   │   ├── routes/   # API routes
+│   │   ├── middleware/ # Express middleware
+│   │   └── ...
+│   └── schema.sql    # MySQL database schema
+└── README.md         # This file
+```
 
 ---
 
 ## Tech Stack
 
 ### Frontend
-- Next.js / React  
-- TypeScript  
-- TailwindCSS  
-- Zustand or Redux  
-- React Query (data fetching)
+- **Next.js 16** - React framework with App Router
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Component library built on Radix UI
+- **Lucide React** - Icon library
 
 ### Backend
-- Node.js / NestJS  
-- PostgreSQL  
-- Prisma ORM  
-- Redis (caching, queue jobs)  
-- WebSockets or SSE for real-time messaging  
-- Cloud storage for media assets
-
-### Integrations
-- Payment Providers (Paystack, Stripe, or Flutterwave)  
-- Email Services (SMTP or SendGrid)  
-- SMS Gateways (Twilio, Termii)
+- **Node.js** - JavaScript runtime
+- **Express** - Web framework
+- **TypeScript** - Type safety
+- **MySQL** - Relational database
+- **mysql2** - MySQL client for Node.js
+- **Helmet** - Security middleware
+- **CORS** - Cross-origin resource sharing
 
 ---
 
-## System Architecture
-```
+## Features
 
-Frontend (Next.js)
-|
-| REST / GraphQL API
-|
-Backend Server (Node.js / NestJS)
-|
-| Prisma ORM
-|
-PostgreSQL Database
-|
-Redis (Caching, Queues)
-|
-Cloud Storage (Images, Docs)
+### Customer Features
+- Browse cocktail packages
+- View bartender profiles
+- Customize drink menus and add-ons
+- Real-time availability checking
+- Event scheduling
+- Booking management dashboard
+- Secure online payments (deposit or full payment)
+- In-app messaging and notifications
+- Email/SMS updates
 
-```
+### Admin Features
+- Manage cocktail packages and pricing
+- Manage bartenders and staff
+- Booking and availability calendar
+- Assign staff to events
+- Track payments and generate reports
+- Inventory and equipment (optional)
+- Customer service communication
+- Analytics dashboard (revenue, usage, trends)
+
+### Bartender/Staff Features
+- View assigned events
+- Receive event details and updates
+- Confirm attendance
+- In-app messaging with admin
+- Access event checklists and requirements
 
 ---
 
-## Folder Structure
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** (v18 or higher)
+- **MySQL** (v8.0 or higher)
+- **npm** or **yarn**
+
+### Installation
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/McAnnison/PopSip.git
+cd PopSip
 ```
 
-/client
-/components
-/pages
-/hooks
-/services
-/styles
-/utils
+2. **Set up the backend:**
+```bash
+cd backend
+npm install
+cp .env.example .env
+# Edit .env with your database credentials
+```
 
-/server
-/src
-/modules
-/controllers
-/services
-/entities
-/middlewares
-/utils
-/config
-/prisma
-/tests
+3. **Create the database:**
+```bash
+mysql -u root -p < schema.sql
+```
 
-/docs
+4. **Set up the frontend:**
+```bash
+cd ../frontend
+npm install
+cp .env.example .env.local
+# Edit .env.local with your backend API URL
+```
 
-* API Documentation
-* Architecture Diagrams
-* ERD
+### Running the Project
 
-````
+#### Start the backend server:
+```bash
+cd backend
+npm run dev
+```
+The backend API will run on [http://localhost:5000](http://localhost:5000)
+
+#### Start the frontend development server:
+```bash
+cd frontend
+npm run dev
+```
+The frontend will run on [http://localhost:3000](http://localhost:3000)
 
 ---
 
 ## API Documentation
-Full API documentation will be available under `/docs/api/` once endpoints are completed.
 
-Key modules include:
-- Auth & User Management  
-- Packages & Cocktails  
-- Bookings  
-- Payments  
-- Staff Assignment  
-- Messaging  
+### Available Endpoints
+
+#### Packages
+- `GET /api/packages` - Get all cocktail packages
+- `GET /api/packages/:id` - Get specific package
+- `POST /api/packages` - Create new package (admin)
+
+#### Bookings
+- `GET /api/bookings` - Get all bookings
+- `POST /api/bookings` - Create new booking
+
+See the backend README for more details.
 
 ---
 
 ## Database Schema
-The core tables include:
-- Users  
-- Bartenders  
-- Packages  
-- Cocktails  
-- AddOns  
-- Bookings  
-- BookingItems  
-- Payments  
-- Messages  
-- StaffAssignments  
-- Notifications  
 
-A full ER diagram is maintained in `/docs/database/erd.png`.
+The database includes the following main tables:
+
+- **users** - User accounts
+- **bartenders** - Bartender profiles
+- **packages** - Cocktail packages
+- **cocktails** - Cocktail recipes
+- **bookings** - Event bookings
+- **staff_assignments** - Bartender assignments to events
+- **payments** - Payment records
+- **messages** - Communication between users
+
+See `backend/schema.sql` for the complete database structure with sample data.
 
 ---
 
-## Installation
+## Development
 
-### Prerequisites
-- Node.js (v18+)  
-- PostgreSQL  
-- Redis  
-- Git  
+### Building for Production
 
-Clone repository:
+**Frontend:**
 ```bash
-git clone https://github.com/<your-username>/mixmaster.git
-cd mixmaster
-````
-
-Install dependencies:
-
-```bash
-cd client && npm install
-cd ../server && npm install
+cd frontend
+npm run build
+npm start
 ```
+
+**Backend:**
+```bash
+cd backend
+npm run build
+npm start
+```
+
+### Project Conventions
+
+- Use TypeScript for type safety
+- Follow existing code structure and naming conventions
+- Write meaningful commit messages
+- Test your changes before committing
 
 ---
 
 ## Environment Variables
 
-Create `.env` files in the `/client` and `/server` directories.
-
-Required variables include:
-
+### Frontend (.env.local)
 ```
-DATABASE_URL=
-REDIS_URL=
-JWT_SECRET=
-CLOUD_STORAGE_KEY=
-PAYMENT_PROVIDER_KEY=
-EMAIL_SERVICE_KEY=
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
 
----
-
-## Running the Project
-
-### Start Development Servers:
-
-Backend:
-
-```bash
-cd server
-npm run dev
+### Backend (.env)
 ```
-
-Frontend:
-
-```bash
-cd client
-npm run dev
-```
-
-### Build for Production:
-
-```bash
-npm run build
+PORT=5000
+NODE_ENV=development
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=mixmaster
+JWT_SECRET=your_jwt_secret_key_here
+CORS_ORIGIN=http://localhost:3000
 ```
 
 ---
@@ -256,18 +224,14 @@ npm run build
 3. Commit changes with clear messages
 4. Submit a pull request
 
-Please review the `CONTRIBUTING.md` for guidelines.
-
 ---
 
 ## License
 
-This project is licensed under the MIT License.
-See the `LICENSE` file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-```
+---
 
+## Support
 
-
-Just tell me what you want next.
-```
+For questions or issues, please open an issue on GitHub or contact the development team.
