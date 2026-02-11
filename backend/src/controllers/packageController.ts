@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import pool from '../config/database';
-import { RowDataPacket } from 'mysql2';
+import { RowDataPacket, ResultSetHeader } from 'mysql2';
 
 // Get all packages
 export const getPackages = async (req: Request, res: Response): Promise<void> => {
@@ -54,7 +54,7 @@ export const createPackage = async (req: Request, res: Response): Promise<void> 
   try {
     const { name, description, price, duration } = req.body;
 
-    const [result] = await pool.query(
+    const [result] = await pool.query<ResultSetHeader>(
       'INSERT INTO packages (name, description, price, duration) VALUES (?, ?, ?, ?)',
       [name, description, price, duration]
     );
@@ -62,7 +62,7 @@ export const createPackage = async (req: Request, res: Response): Promise<void> 
     res.status(201).json({
       success: true,
       message: 'Package created successfully',
-      data: { id: (result as any).insertId },
+      data: { id: result.insertId },
     });
   } catch (error) {
     console.error('Error creating package:', error);
