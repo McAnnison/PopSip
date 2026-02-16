@@ -47,7 +47,9 @@
 
 ## 🎯 Overview
 
-**PopSip** is a comprehensive booking platform designed for cocktail catering and professional bartending services. The platform enables customers to browse cocktail packages, hire experienced bartenders for events, customize drink menus with add-ons, and manage their bookings through an intuitive dashboard. Administrators gain access to powerful management tools including booking calendars, staff assignments, payment tracking, and analytics. Bartenders can view their assigned events, confirm attendance, and communicate with admins seamlessly.
+**PopSip** is a revolutionary two-sided marketplace connecting professional bartenders with customers seeking exceptional cocktail services for their events. The platform empowers bartenders to create their own booking business by building custom profiles, showcasing their skills, setting their own prices, and publishing unique service packages. Customers can browse a vibrant marketplace of talented mixologists, compare services, read reviews, and book the perfect bartender for their party or celebration.
+
+The platform features a modern, energetic design with a party vibe that reflects the excitement of the cocktail and entertainment industry. With its purple-pink gradient theme and intuitive interface, PopSip makes it easy for both bartenders to grow their business and customers to find exceptional service.
 
 Built as a modern monorepo with TypeScript throughout, PopSip leverages Next.js 16 for the frontend and Express for the backend, with MySQL powering the data layer.
 
@@ -55,33 +57,34 @@ Built as a modern monorepo with TypeScript throughout, PopSip leverages Next.js 
 
 ## ✨ Features
 
-### 🛍️ Customer Experience
-- **Browse Packages** - Explore curated cocktail packages for any occasion
-- **Bartender Profiles** - View detailed profiles of professional bartenders
-- **Menu Customization** - Personalize drink menus and select add-ons
-- **Real-Time Availability** - Check bartender and package availability instantly
-- **Event Scheduling** - Schedule events with ease and flexibility
-- **Booking Dashboard** - Manage all your bookings in one place
-- **Secure Payments** - Choose deposit or full payment options
-- **Messaging & Notifications** - Stay connected via in-app messaging
-- **Updates** - Receive email and SMS notifications
+### 🍹 For Customers
+- **Browse Bartenders** - Explore a vibrant marketplace of professional bartenders and mixologists
+- **Advanced Filtering** - Search by location, specialties, rating, and price range
+- **Bartender Profiles** - View detailed profiles with experience, ratings, reviews, and portfolios
+- **Service Packages** - Compare custom service offerings from each bartender
+- **Real-Time Reviews** - Read authentic reviews from past clients
+- **Easy Booking** - Simple booking process with instant requests
+- **Party-Themed UI** - Energetic, colorful design that matches the celebration vibe
 
-### 👨‍💼 Admin Capabilities
-- **Package Management** - Create and manage cocktail packages and pricing
-- **Staff Management** - Oversee bartenders and staff profiles
-- **Calendar View** - Visual booking and availability calendar
-- **Staff Assignment** - Assign bartenders to events efficiently
-- **Payment Tracking** - Monitor payments and generate financial reports
-- **Inventory Control** - Optional equipment and inventory management
-- **Customer Service** - Built-in communication tools
-- **Analytics Dashboard** - Track revenue, usage patterns, and trends
+### 🍸 For Bartenders
+- **Create Your Profile** - Build a professional profile showcasing your skills and experience
+- **Multi-Step Onboarding** - Guided 3-step registration process (Profile → Services → Review)
+- **Custom Service Packages** - Create and price your own unique service offerings
+- **Flexible Pricing** - Set your hourly rate and package prices
+- **Portfolio Showcase** - Upload images of your work and past events
+- **Availability Management** - Control your schedule and service area
+- **Publish When Ready** - Preview and edit before going live
+- **Booking Management** - Receive and manage booking requests
+- **Build Your Reputation** - Collect reviews and ratings from satisfied clients
+- **Grow Your Business** - Reach more customers through the marketplace
 
-### 🍸 Bartender/Staff Tools
-- **Event Overview** - View all assigned events and schedules
-- **Event Details** - Access complete event information and requirements
-- **Attendance Confirmation** - Confirm or update attendance status
-- **Admin Messaging** - Direct communication with administrators
-- **Checklists** - Access event-specific checklists and requirements
+### 👨‍💼 Platform Features
+- **Two-Sided Marketplace** - Connects bartenders with customers seamlessly
+- **Rating & Review System** - Build trust through authentic customer feedback
+- **Location-Based Services** - Find bartenders in your area or willing to travel
+- **Responsive Design** - Beautiful experience on desktop, tablet, and mobile
+- **Vibrant UI/UX** - Purple-pink gradient theme with party atmosphere
+- **Secure Platform** - Built with security best practices
 
 ---
 
@@ -319,6 +322,53 @@ http://localhost:5000/api
 
 ### Available Endpoints
 
+#### 🍹 Bartenders
+
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| `GET` | `/api/bartenders` | Get all published bartenders (with filters) | No |
+| `GET` | `/api/bartenders/:id` | Get specific bartender with services, reviews, portfolio | No |
+| `POST` | `/api/bartenders` | Create new bartender profile | User |
+| `PUT` | `/api/bartenders/:id` | Update bartender profile | Bartender |
+| `POST` | `/api/bartenders/:id/publish` | Publish bartender profile to marketplace | Bartender |
+| `POST` | `/api/bartenders/services` | Add service package to bartender | Bartender |
+| `POST` | `/api/bartenders/bookings` | Create booking request for bartender | Customer |
+| `POST` | `/api/bartenders/reviews` | Add review for bartender | Customer |
+
+**Filter Parameters for `/api/bartenders`:**
+- `location` - Filter by location (partial match)
+- `specialties` - Filter by specialties (partial match)
+- `minRating` - Minimum rating (e.g., 4.5)
+- `maxPrice` - Maximum hourly rate
+
+**Example Request:**
+```bash
+curl "http://localhost:5000/api/bartenders?location=Los Angeles&minRating=4.5"
+```
+
+**Example Response:**
+```json
+{
+  "success": true,
+  "count": 2,
+  "data": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "business_name": "Elite Mixology",
+      "bio": "Award-winning bartender...",
+      "experience_years": 10,
+      "specialties": "Craft Cocktails, Molecular Mixology",
+      "hourly_rate": 75.00,
+      "location": "Los Angeles, CA",
+      "rating": 4.8,
+      "total_bookings": 127,
+      "review_count": 45
+    }
+  ]
+}
+```
+
 #### 📦 Packages
 
 | Method | Endpoint | Description | Auth |
@@ -380,10 +430,15 @@ PopSip uses MySQL with the following main tables:
 | Table | Description |
 |-------|-------------|
 | **users** | User accounts (customers, bartenders, admins) |
-| **bartenders** | Bartender profiles and availability |
-| **packages** | Cocktail packages and pricing |
+| **bartenders** | Enhanced bartender profiles with business details, images, ratings |
+| **bartender_services** | Custom service packages offered by each bartender |
+| **bartender_portfolio** | Portfolio images and work showcases |
+| **bartender_availability** | Weekly availability schedules |
+| **bartender_reviews** | Customer reviews and ratings |
+| **bartender_bookings** | Direct bookings between customers and bartenders |
+| **packages** | Cocktail packages and pricing (legacy) |
 | **cocktails** | Cocktail recipes and ingredients |
-| **bookings** | Event bookings and details |
+| **bookings** | Event bookings and details (legacy) |
 | **staff_assignments** | Bartender assignments to events |
 | **payments** | Payment records and transactions |
 | **messages** | In-app communication between users |
@@ -391,13 +446,16 @@ PopSip uses MySQL with the following main tables:
 ### Database Relationships
 
 ```
-users ─┬─→ bartenders
+users ─┬─→ bartenders ─┬─→ bartender_services
+       │                ├─→ bartender_portfolio
+       │                ├─→ bartender_availability
+       │                ├─→ bartender_reviews
+       │                └─→ bartender_bookings
        ├─→ bookings
        └─→ messages
 
-packages ─→ bookings ─→ staff_assignments ─→ bartenders
-
-bookings ─→ payments
+bartender_bookings ─→ bartender_services
+bartender_reviews ─→ bartender_bookings (optional)
 ```
 
 > 📄 **Full Schema:** See `backend/schema.sql` for the complete database structure, including indexes, constraints, and sample data.
