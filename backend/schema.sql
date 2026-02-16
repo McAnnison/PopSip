@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS bartender_reviews (
   booking_id INT,
   customer_name VARCHAR(255) NOT NULL,
   customer_email VARCHAR(255),
-  rating INT NOT NULL CHECK (rating >= 1 AND rating <= 5),
+  rating DECIMAL(3, 2) NOT NULL CHECK (rating >= 1 AND rating <= 5),
   review_text TEXT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (bartender_id) REFERENCES bartenders(id) ON DELETE CASCADE,
@@ -213,11 +213,11 @@ INSERT INTO cocktails (name, description, ingredients, difficulty) VALUES
 ('Mojito', 'Refreshing rum cocktail with mint and lime', 'White rum, Mint, Lime, Sugar, Soda water', 'easy'),
 ('Espresso Martini', 'Coffee-infused vodka cocktail', 'Vodka, Coffee liqueur, Espresso, Simple syrup', 'medium');
 
--- Insert sample bartender data
+-- Insert sample bartender data (Note: In production, use properly hashed passwords)
 INSERT INTO users (name, email, password, role) VALUES
-('John "The Mixologist" Smith', 'john.smith@example.com', 'hashed_password_1', 'bartender'),
-('Sarah Martinez', 'sarah.martinez@example.com', 'hashed_password_2', 'bartender'),
-('Mike "Cocktail King" Johnson', 'mike.johnson@example.com', 'hashed_password_3', 'bartender');
+('John "The Mixologist" Smith', 'john.smith@example.com', '$2b$10$example_hashed_password_here_1', 'bartender'),
+('Sarah Martinez', 'sarah.martinez@example.com', '$2b$10$example_hashed_password_here_2', 'bartender'),
+('Mike "Cocktail King" Johnson', 'mike.johnson@example.com', '$2b$10$example_hashed_password_here_3', 'bartender');
 
 INSERT INTO bartenders (user_id, business_name, bio, experience_years, specialties, hourly_rate, phone, location, service_radius, profile_image, published, rating, total_bookings) VALUES
 (1, 'Elite Mixology', 'Award-winning bartender specializing in craft cocktails and molecular mixology. Over 10 years of experience serving high-profile events.', 10, 'Craft Cocktails, Molecular Mixology, Whiskey Specialist', 75.00, '555-0101', 'Los Angeles, CA', 50, 'https://images.unsplash.com/photo-1514933651103-005eec06c04b', true, 4.8, 127),

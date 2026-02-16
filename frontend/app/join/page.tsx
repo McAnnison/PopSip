@@ -52,13 +52,71 @@ export default function JoinBartenderPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Here you would:
-    // 1. Create user account
-    // 2. Create bartender profile
-    // 3. Add services
-    
-    alert('Profile created successfully! You can now publish your profile to start receiving bookings.');
-    // Reset or redirect
+    try {
+      // Step 1: Create user account (would need authentication endpoint)
+      // For demonstration, we'll show how this would work with actual API calls
+      
+      // Step 2: Create bartender profile
+      const bartenderResponse = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/bartenders`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            user_id: 1, // In production, this would come from auth
+            business_name: formData.business_name,
+            bio: formData.bio,
+            experience_years: parseInt(formData.experience_years),
+            specialties: formData.specialties,
+            hourly_rate: parseFloat(formData.hourly_rate),
+            phone: formData.phone,
+            location: formData.location,
+            service_radius: parseInt(formData.service_radius),
+            profile_image: formData.profile_image,
+          }),
+        }
+      );
+      
+      const bartenderData = await bartenderResponse.json();
+      
+      if (bartenderData.success) {
+        const bartenderId = bartenderData.data.id;
+        
+        // Step 3: Add services
+        for (const service of services) {
+          if (service.service_name) {
+            await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/bartenders/services`,
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  bartender_id: bartenderId,
+                  service_name: service.service_name,
+                  description: service.description,
+                  price: parseFloat(service.price),
+                  duration: parseInt(service.duration),
+                  max_guests: parseInt(service.max_guests),
+                }),
+              }
+            );
+          }
+        }
+        
+        alert('Profile created successfully! You can now publish your profile to start receiving bookings.');
+        // In production, redirect to bartender dashboard
+        window.location.href = '/';
+      } else {
+        throw new Error(bartenderData.message || 'Failed to create profile');
+      }
+    } catch (error) {
+      console.error('Error creating profile:', error);
+      alert('Failed to create profile. Please try again. Note: This requires a running backend server with database connection.');
+    }
   };
 
   const nextStep = () => setStep(step + 1);

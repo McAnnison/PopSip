@@ -328,7 +328,8 @@ export const createBartenderBooking = async (req: Request, res: Response) => {
       ]
     );
     
-    // Update bartender total bookings
+    // Note: In production, this would update total_bookings only when booking is confirmed
+    // For now, we track all booking requests
     await db.query(
       'UPDATE bartenders SET total_bookings = total_bookings + 1 WHERE id = ?',
       [bartender_id]
