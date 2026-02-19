@@ -1,9 +1,42 @@
 @import "tailwindcss";
 
 @layer base {
+  :root {
+    --party-purple: #9333ea;
+    --party-pink: #ec4899;
+    --party-orange: #f97316;
+    --party-cyan: #06b6d4;
+    --neon-green: #10b981;
+    --dark-bg: #0f172a;
+  }
+  
   body {
     background-color: white;
     color: rgb(23, 23, 23);
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, var(--party-purple), var(--party-pink), var(--party-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .party-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+  }
+  
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
 }
