@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 import packageRoutes from './routes/packages';
 import bookingRoutes from './routes/bookings';
+import bartenderRoutes from './routes/bartenders';
 import { errorHandler } from './middleware/errorHandler';
 
 dotenv.config();
@@ -21,13 +22,14 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req: Request, res: Response) => {
   res.json({
     success: true,
-    message: 'MixMaster API is running',
-    version: '1.0.0',
+    message: 'PopSip API is running',
+    version: '2.0.0',
   });
 });
 
 app.use('/api/packages', packageRoutes);
 app.use('/api/bookings', bookingRoutes);
+app.use('/api/bartenders', bartenderRoutes);
 
 // Error handling middleware
 app.use(errorHandler);
