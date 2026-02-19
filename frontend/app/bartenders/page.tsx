@@ -1,7 +1,8 @@
 'use client';
 
+import Link from 'next/dist/client/link';
 import { useEffect, useState } from 'react';
-
+import Image from "next/image"
 interface Bartender {
   id: number;
   name: string;
@@ -29,7 +30,7 @@ export default function BartendersPage() {
 
   useEffect(() => {
     fetchBartenders();
-  }, []);
+  }, );
 
   const fetchBartenders = async () => {
     try {
@@ -77,16 +78,17 @@ export default function BartendersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-orange-50">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <a href="/" className="text-3xl font-bold gradient-text">🍹 PopSip</a>
+          <Link href="/" className="text-3xl font-bold gradient-text">🍹 PopSip</Link>
+
           <nav className="flex gap-2">
             <button className="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg font-semibold">Browse Bartenders</button>
             <button className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Packages</button>
             <button className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Become a Bartender</button>
-            <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg neon-glow">
+            <button className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg neon-glow">
               Book Now
             </button>
           </nav>
@@ -163,7 +165,7 @@ export default function BartendersPage() {
           <div className="flex gap-3 mt-4">
             <button
               onClick={applyFilters}
-              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-semibold shadow-lg transition-all"
+              className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-semibold shadow-lg transition-all"
             >
               Apply Filters
             </button>
@@ -202,12 +204,12 @@ export default function BartendersPage() {
                 key={bartender.id}
                 className="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border-2 border-purple-100"
               >
-                <div className="relative h-64 bg-gradient-to-br from-purple-200 to-pink-200">
-                  <img
+                <div className="relative h-64 bg-linear-to-br from-purple-200 to-pink-200">
+                  <Image
                     src={bartender.profile_image || 'https://via.placeholder.com/400x300'}
                     alt={bartender.name}
                     className="w-full h-full object-cover"
-                  />
+                  ></Image>
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-bold text-purple-900">
                     ⭐ {bartender.rating.toFixed(1)}
                   </div>
@@ -245,7 +247,7 @@ export default function BartendersPage() {
                     </div>
                     <a
                       href={`/bartenders/${bartender.id}`}
-                      className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-semibold shadow-lg transition-all"
+                      className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-semibold shadow-lg transition-all"
                     >
                       View Profile
                     </a>

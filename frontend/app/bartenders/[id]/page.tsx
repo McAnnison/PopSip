@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Image from "next/image";
+import Link from "next/link";
 
 interface BartenderService {
   id: number;
@@ -59,7 +61,7 @@ export default function BartenderProfilePage() {
     if (params.id) {
       fetchBartenderDetails();
     }
-  }, [params.id]);
+  }, );
 
   const fetchBartenderDetails = async () => {
     try {
@@ -125,7 +127,7 @@ export default function BartenderProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-orange-50 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin"></div>
           <p className="mt-4 text-gray-600 font-medium">Loading bartender profile...</p>
@@ -136,26 +138,26 @@ export default function BartenderProfilePage() {
 
   if (!bartender) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-orange-50 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">😕</div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Bartender not found</h2>
-          <a href="/bartenders" className="text-purple-600 hover:underline">Back to all bartenders</a>
+  <         Link href="/bartenders" className="text-purple-600 hover:underline"> Back to all bartenders</Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-orange-50">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <a href="/" className="text-3xl font-bold gradient-text">🍹 PopSip</a>
+          <Link href="/" className="text-3xl font-bold gradient-text">🍹 PopSip</Link>
           <nav className="flex gap-2">
-            <a href="/bartenders" className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Browse Bartenders</a>
+            <Link href="/bartenders" className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Browse Bartenders</Link>
             <button className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Packages</button>
-            <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg neon-glow">
+            <button className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg neon-glow">
               Book Now
             </button>
           </nav>
@@ -163,13 +165,13 @@ export default function BartenderProfilePage() {
       </header>
 
       {/* Cover Image */}
-      <div className="relative h-80 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400">
+      <div className="relative h-80 bg-linear-to-br from-purple-400 via-pink-400 to-orange-400">
         {bartender.cover_image && (
-          <img
+          <Image
             src={bartender.cover_image}
             alt="Cover"
             className="w-full h-full object-cover"
-          />
+          ></Image>
         )}
       </div>
 
@@ -178,12 +180,12 @@ export default function BartenderProfilePage() {
         <div className="bg-white rounded-3xl shadow-2xl p-8 mb-8 border-2 border-purple-100">
           <div className="flex flex-col md:flex-row gap-8">
             {/* Profile Image */}
-            <div className="flex-shrink-0">
-              <img
+            <div className="shrink-0">
+              <Image
                 src={bartender.profile_image || 'https://via.placeholder.com/200'}
                 alt={bartender.name}
                 className="w-48 h-48 rounded-2xl object-cover shadow-xl border-4 border-white"
-              />
+              ></Image>
             </div>
 
             {/* Profile Info */}
@@ -228,7 +230,7 @@ export default function BartenderProfilePage() {
                   {bartender.specialties?.split(',').map((specialty, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full font-medium"
+                      className="px-4 py-2 bg-linear-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full font-medium"
                     >
                       {specialty.trim()}
                     </span>
@@ -329,7 +331,7 @@ export default function BartenderProfilePage() {
                   disabled={!selectedService}
                   className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all ${
                     selectedService
-                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
+                      ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
                       : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                   }`}
                 >
@@ -418,7 +420,7 @@ export default function BartenderProfilePage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-bold shadow-lg transition-all"
+                    className="w-full py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-bold shadow-lg transition-all"
                   >
                     Send Booking Request
                   </button>
