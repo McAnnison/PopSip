@@ -1,0 +1,92 @@
+### Base URL
+@baseUrl = http://localhost:3000/api
+
+---
+### AUTHENTICATION ENDPOINTS
+---
+
+# REGISTRATION FLOW
+# /register  : sends OTP, returns signup token
+# /verify-otp: submits OTP + token, creates account
+# /resend-otp : resend a fresh OTP if it expired
+
+
+### 1. Register (Initiate signup — sends OTP to email)
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "",
+  "password": "",
+  "full_name": "",
+  "phone": "",
+  "user_type": ""
+}
+
+###
+
+### 2. Verify OTP (Complete registration)
+# Use the token returned by /register above
+POST {{baseUrl}}/auth/verify-otp
+Content-Type: application/json
+
+{
+  "token": "<paste_signup_token_here>",
+  "otp": ""
+}
+
+###
+
+### 3. Resend OTP (Use the old/expired token — a new one is returned)
+POST {{baseUrl}}/auth/resend-otp
+Content-Type: application/json
+
+{
+  "token": "<paste_signup_token_here>"
+}
+
+###
+
+
+### Login User
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "",
+  "password": ""
+}
+
+###
+
+
+### Get Current User (Protected — requires Bearer token)
+@authToken = <paste_auth_token_here>
+
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{authToken}}
+
+# PASSWORD RESET FLOW
+# /forgot-password : sends reset OTP, returns reset token
+#  /reset-password  : submits OTP + token + new password
+
+### Forgot Password (Request reset OTP)
+POST {{baseUrl}}/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": "customer@example.com"
+}
+
+
+### Reset Password (Set new password using OTP)
+# Use the token returned by /forgot-password above
+POST {{baseUrl}}/auth/reset-password
+Content-Type: application/json
+
+{
+  "token": "<paste_reset_token_here>",
+  "otp": "123456",
+  "newPassword": "newSecurePassword123"
+}
+
