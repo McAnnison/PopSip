@@ -1,25 +1,14 @@
-<div align="center">
-
-# 🍹 PopSip
+# PopSip
 
 ### Professional Cocktail Catering & Bartending Booking Platform
-
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
-[![Next.js](https://img.shields.io/badge/Next.js-16.1-black.svg)](https://nextjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-5.2-lightgrey.svg)](https://expressjs.com/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)](https://www.mysql.com/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 *A full-service booking platform for cocktail catering and professional bartending services. Browse packages, hire bartenders, customize menus, and manage events with ease.*
 
 [Features](#-features) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [API](#-api-reference) • [Contributing](#-contributing)
 
-</div>
-
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#-overview)
 - [Features](#-features)
@@ -45,73 +34,86 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
-**PopSip** is a comprehensive booking platform designed for cocktail catering and professional bartending services. The platform enables customers to browse cocktail packages, hire experienced bartenders for events, customize drink menus with add-ons, and manage their bookings through an intuitive dashboard. Administrators gain access to powerful management tools including booking calendars, staff assignments, payment tracking, and analytics. Bartenders can view their assigned events, confirm attendance, and communicate with admins seamlessly.
+**PopSip** is a comprehensive booking platform designed for cocktail catering and professional bartending services. The platform enables customers to browse cocktail packages, hire experienced bartenders for events, customize drink menus, and manage their bookings through an intuitive dashboard. Administrators gain access to powerful management tools including booking calendars, user management, payment tracking, and analytics. Bartenders can view their assigned events, manage availability, confirm attendance, and communicate with customers seamlessly.
 
-Built as a modern monorepo with TypeScript throughout, PopSip leverages Next.js 16 for the frontend and Express for the backend, with MySQL powering the data layer.
+Built as a modern monorepo, PopSip leverages Next.js 16 for the frontend and Express for the backend, with MySQL powering the data layer.
 
 ---
 
-## ✨ Features
+## Features
 
-### 🛍️ Customer Experience
+### Customer Experience
+
 - **Browse Packages** - Explore curated cocktail packages for any occasion
-- **Bartender Profiles** - View detailed profiles of professional bartenders
-- **Menu Customization** - Personalize drink menus and select add-ons
-- **Real-Time Availability** - Check bartender and package availability instantly
+- **Bartender Profiles** - View detailed profiles with photos, experience, and reviews
+- **Menu Customization** - Personalize drink menus with special requests
+- **Real-Time Availability** - Check bartender availability instantly
 - **Event Scheduling** - Schedule events with ease and flexibility
 - **Booking Dashboard** - Manage all your bookings in one place
 - **Secure Payments** - Choose deposit or full payment options
-- **Messaging & Notifications** - Stay connected via in-app messaging
-- **Updates** - Receive email and SMS notifications
+- **Favorites** - Save your favorite bartenders for future events
+- **Messaging** - Chat directly with your booked bartender
+- **Reviews & Ratings** - Leave feedback after your event
+- **Notifications** - Stay updated on booking status changes
 
-### 👨‍💼 Admin Capabilities
-- **Package Management** - Create and manage cocktail packages and pricing
-- **Staff Management** - Oversee bartenders and staff profiles
-- **Calendar View** - Visual booking and availability calendar
-- **Staff Assignment** - Assign bartenders to events efficiently
-- **Payment Tracking** - Monitor payments and generate financial reports
-- **Inventory Control** - Optional equipment and inventory management
-- **Customer Service** - Built-in communication tools
-- **Analytics Dashboard** - Track revenue, usage patterns, and trends
+### Admin Capabilities
 
-### 🍸 Bartender/Staff Tools
-- **Event Overview** - View all assigned events and schedules
-- **Event Details** - Access complete event information and requirements
-- **Attendance Confirmation** - Confirm or update attendance status
-- **Admin Messaging** - Direct communication with administrators
-- **Checklists** - Access event-specific checklists and requirements
+- **Dashboard** - Quick overview of platform activity
+- **User Management** - Manage customers and bartenders
+- **Booking Oversight** - View and manage all bookings
+- **Verification System** - Verify bartender credentials
+- **Payment Tracking** - Monitor payments across all bookings
+- **Analytics** - Track platform growth and revenue
+
+### Bartender/Staff Tools
+
+- **Profile Management** - Showcase experience, photos, and specialties
+- **Package Management** - Create and update service packages
+- **Availability Calendar** - Set available dates for bookings
+- **Booking Dashboard** - View upcoming and past events
+- **Attendance Confirmation** - Confirm or decline booking requests
+- **Customer Communication** - Chat with customers before events
+- **Review Responses** - Respond to customer feedback
+- **Earnings Overview** - Track completed bookings and earnings
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Next.js** | 16.1 | React framework with App Router |
-| **React** | 19.2 | UI library |
-| **TypeScript** | 5.0+ | Type safety and developer experience |
-| **Tailwind CSS** | 4.0 | Utility-first CSS framework |
-| **shadcn/ui** | Latest | Component library built on Radix UI |
-| **Lucide React** | 0.563 | Modern icon library |
+
+| Technology             | Version | Purpose                              |
+| ---------------------- | ------- | ------------------------------------ |
+| **Next.js**      | 16.1    | React framework with App Router      |
+| **React**        | 19.2    | UI library                           |
+| **TypeScript**   | 5.0+    | Type safety and developer experience |
+| **Tailwind CSS** | 4.0     | Utility-first CSS framework          |
+| **shadcn/ui**    | Latest  | Component library built on Radix UI  |
+| **Lucide React** | 0.563   | Modern icon library                  |
 
 ### Backend
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Node.js** | 18+ | JavaScript runtime |
-| **Express** | 5.2 | Web application framework |
-| **TypeScript** | 5.9+ | Type safety |
-| **MySQL** | 8.0+ | Relational database |
-| **mysql2** | 3.17 | MySQL client for Node.js |
-| **Helmet** | 8.1 | Security middleware |
-| **CORS** | 2.8 | Cross-origin resource sharing |
-| **express-rate-limit** | 8.2 | API rate limiting |
+
+| Technology                   | Version | Purpose                       |
+| ---------------------------- | ------- | ----------------------------- |
+| **Node.js**            | 18+     | JavaScript runtime            |
+| **Express**            | 5.2     | Web application framework     |
+| **JavaScript**         | ES6+    | Programming language          |
+| **MySQL**              | 8.0+    | Relational database           |
+| **mysql2**             | 3.17    | MySQL client for Node.js      |
+| **bcrypt**             | 6.0     | Password hashing              |
+| **jsonwebtoken**       | 9.0     | JWT authentication            |
+| **helmet**             | 8.1     | Security middleware           |
+| **cors**               | 2.8     | Cross-origin resource sharing |
+| **express-rate-limit** | 8.2     | API rate limiting             |
+| **multer**             | 2.0     | File upload handling          |
+| **nodemailer**         | 8.0     | Email notifications           |
+| **dotenv**             | 17.3    | Environment variables         |
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 This is a **monorepo** containing both frontend and backend applications:
 
@@ -127,22 +129,24 @@ PopSip/
 │   └── tsconfig.json       # TypeScript configuration
 │
 ├── backend/                 # Node.js + Express backend API
-│   ├── src/                # TypeScript source code
+│   ├── src/                # JavaScript source code
 │   │   ├── config/         # Configuration files
 │   │   ├── controllers/    # Route controllers
+│   │   ├── middleware/     # Custom middleware (auth, upload, etc.)
 │   │   ├── routes/         # API routes
-│   │   ├── middleware/     # Express middleware
-│   │   └── index.ts        # Application entry point
+│   │   ├── utils/          # Utility functions
+│   │   └── index.js        # Application entry point
 │   ├── schema.sql          # MySQL database schema with sample data
+│   ├── .env.example        # Example environment variables
 │   ├── package.json        # Backend dependencies
-│   └── tsconfig.json       # TypeScript configuration
+│   └── README.md           # Backend documentation
 │
 └── README.md               # This file
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -150,7 +154,7 @@ Before you begin, ensure you have the following installed:
 
 - **Node.js** version 18 or higher ([Download](https://nodejs.org/))
 - **MySQL** version 8.0 or higher ([Download](https://dev.mysql.com/downloads/))
-- **npm** or **yarn** package manager
+- **npm** package manager
 
 ### Installation
 
@@ -188,8 +192,6 @@ mysql -u root -p < schema.sql
 # This will create the 'popsip' database with all necessary tables and sample data
 ```
 
-> **Note:** Update the database name in `schema.sql` from `mixmaster` to `popsip` if needed for consistency.
-
 #### 4. Set Up the Frontend
 
 ```bash
@@ -203,12 +205,12 @@ npm install
 cp .env.example .env.local
 
 # Edit .env.local with your backend API URL
-# nano .env.local  # or use your preferred editor
+# NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
 
 ### Quick Start
 
-Get the application running in development mode in under a minute:
+Get the application running in development mode:
 
 ```bash
 # Terminal 1 - Start the backend server
@@ -222,11 +224,11 @@ npm run dev
 # Frontend runs on http://localhost:3000
 ```
 
-🎉 **That's it!** Open [http://localhost:3000](http://localhost:3000) in your browser to see PopSip in action.
+🎉 **Open [http://localhost:3000](http://localhost:3000)** to see PopSip in action!
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 ### Environment Variables
 
@@ -255,6 +257,12 @@ JWT_SECRET=your_jwt_secret_key_here
 
 # CORS Configuration
 CORS_ORIGIN=http://localhost:3000
+
+# Email (optional)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASS=your_app_password
 ```
 
 > ⚠️ **Security Note:** Never commit `.env` files to version control. Always use `.env.example` as a template.
@@ -264,52 +272,41 @@ CORS_ORIGIN=http://localhost:3000
 #### Development Mode
 
 **Backend:**
+
 ```bash
 cd backend
 npm run dev
+# API available at http://localhost:5000
 ```
-The backend API will run on [http://localhost:5000](http://localhost:5000)
 
 **Frontend:**
+
 ```bash
 cd frontend
 npm run dev
+# App available at http://localhost:3000
 ```
-The frontend will run on [http://localhost:3000](http://localhost:3000)
 
 #### Production Mode
 
-See [Building for Production](#building-for-production) section below.
-
-### Building for Production
-
-#### Frontend Build
-
-```bash
-cd frontend
-
-# Create optimized production build
-npm run build
-
-# Start production server
-npm start
-```
-
-#### Backend Build
+**Backend Build:**
 
 ```bash
 cd backend
+npm start
+```
 
-# Compile TypeScript to JavaScript
+**Frontend Build:**
+
+```bash
+cd frontend
 npm run build
-
-# Start production server
 npm start
 ```
 
 ---
 
-## 🔌 API Reference
+## API Reference
 
 ### Base URL
 
@@ -317,118 +314,129 @@ npm start
 http://localhost:5000/api
 ```
 
-### Available Endpoints
+### Authentication Endpoints
 
-#### 📦 Packages
+| Method   | Endpoint           | Description       | Auth     |
+| -------- | ------------------ | ----------------- | -------- |
+| `POST` | `/auth/register` | Register new user | Public   |
+| `POST` | `/auth/login`    | User login        | Public   |
+| `GET`  | `/auth/me`       | Get current user  | Required |
 
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| `GET` | `/api/packages` | Retrieve all cocktail packages | No |
-| `GET` | `/api/packages/:id` | Get specific package details | No |
-| `POST` | `/api/packages` | Create new package | Admin |
-| `PUT` | `/api/packages/:id` | Update existing package | Admin |
-| `DELETE` | `/api/packages/:id` | Delete a package | Admin |
+### Public Endpoints
 
-**Example Request:**
-```bash
-curl http://localhost:5000/api/packages
-```
+| Method  | Endpoint                         | Description                        |
+| ------- | -------------------------------- | ---------------------------------- |
+| `GET` | `/packages`                    | Browse all packages with filters   |
+| `GET` | `/packages/:id`                | Get package details                |
+| `GET` | `/bartenders`                  | Browse bartenders with filters     |
+| `GET` | `/bartenders/:id`              | Get bartender profile with reviews |
+| `GET` | `/bartenders/:id/availability` | Check bartender availability       |
+| `GET` | `/search?q=query`              | Global search                      |
 
-**Example Response:**
-```json
-[
-  {
-    "id": 1,
-    "name": "Classic Cocktail Package",
-    "description": "Perfect for intimate gatherings",
-    "price": 299.99,
-    "duration": 3,
-    "max_guests": 25
-  }
-]
-```
+### Customer Endpoints
 
-#### 📅 Bookings
+| Method     | Endpoint                    | Description             |
+| ---------- | --------------------------- | ----------------------- |
+| `GET`    | `/bookings`               | Get my bookings         |
+| `GET`    | `/bookings/:id`           | Get booking details     |
+| `POST`   | `/bookings`               | Create new booking      |
+| `PUT`    | `/bookings/:id`           | Update booking          |
+| `DELETE` | `/bookings/:id`           | Cancel booking          |
+| `GET`    | `/favorites`              | Get favorite bartenders |
+| `POST`   | `/favorites/:bartenderId` | Add to favorites        |
+| `DELETE` | `/favorites/:bartenderId` | Remove from favorites   |
+| `POST`   | `/reviews`                | Create review           |
+| `GET`    | `/notifications`          | Get my notifications    |
 
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| `GET` | `/api/bookings` | Retrieve all bookings | User |
-| `GET` | `/api/bookings/:id` | Get specific booking | User |
-| `POST` | `/api/bookings` | Create new booking | User |
-| `PUT` | `/api/bookings/:id` | Update booking | User |
-| `DELETE` | `/api/bookings/:id` | Cancel booking | User |
+### Bartender Endpoints
 
-**Example Request:**
-```bash
-curl -X POST http://localhost:5000/api/bookings \
-  -H "Content-Type: application/json" \
-  -d '{
-    "package_id": 1,
-    "event_date": "2026-06-15",
-    "guests": 20
-  }'
-```
+| Method     | Endpoint                            | Description           |
+| ---------- | ----------------------------------- | --------------------- |
+| `GET`    | `/bartender/dashboard`            | Dashboard stats       |
+| `GET`    | `/bartender/bookings`             | Get assigned bookings |
+| `PUT`    | `/bartender/bookings/:id/confirm` | Confirm booking       |
+| `PUT`    | `/bartender/bookings/:id/decline` | Decline booking       |
+| `GET`    | `/bartender/packages`             | Manage packages       |
+| `POST`   | `/bartender/packages`             | Create package        |
+| `PUT`    | `/bartender/packages/:id`         | Update package        |
+| `DELETE` | `/bartender/packages/:id`         | Delete package        |
+| `GET`    | `/bartender/availability`         | Get availability      |
+| `POST`   | `/bartender/availability`         | Set availability      |
+| `POST`   | `/bartender/reviews/:id/respond`  | Respond to review     |
 
-> 📖 For complete API documentation, see the backend README or explore the `/api` endpoints in your development environment.
+### Admin Endpoints
+
+| Method     | Endpoint                    | Description          |
+| ---------- | --------------------------- | -------------------- |
+| `GET`    | `/admin/dashboard`        | Platform overview    |
+| `GET`    | `/admin/users`            | Manage users         |
+| `PUT`    | `/admin/users/:id/verify` | Verify bartender     |
+| `DELETE` | `/admin/users/:id`        | Delete user          |
+| `GET`    | `/admin/bookings`         | View all bookings    |
+| `GET`    | `/admin/payments`         | View payment summary |
+
+### Messaging Endpoints
+
+| Method   | Endpoint                        | Description          |
+| -------- | ------------------------------- | -------------------- |
+| `GET`  | `/conversations`              | Get my conversations |
+| `GET`  | `/conversations/:id/messages` | Get messages         |
+| `POST` | `/conversations/:id/messages` | Send message         |
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
-PopSip uses MySQL with the following main tables:
+PopSip uses a simplified but powerful MySQL schema with 10 core tables:
 
-| Table | Description |
-|-------|-------------|
-| **users** | User accounts (customers, bartenders, admins) |
-| **bartenders** | Bartender profiles and availability |
-| **packages** | Cocktail packages and pricing |
-| **cocktails** | Cocktail recipes and ingredients |
-| **bookings** | Event bookings and details |
-| **staff_assignments** | Bartender assignments to events |
-| **payments** | Payment records and transactions |
-| **messages** | In-app communication between users |
+| Table                        | Description                                   |
+| ---------------------------- | --------------------------------------------- |
+| **users**              | User accounts (customers, bartenders, admins) |
+| **bartender_profiles** | Extended bartender information                |
+| **packages**           | Cocktail packages offered by bartenders       |
+| **bookings**           | Event bookings with payment tracking          |
+| **reviews**            | Customer feedback and bartender responses     |
+| **conversations**      | Chat sessions per booking                     |
+| **messages**           | Individual chat messages                      |
+| **availability**       | Bartender available dates                     |
+| **favorites**          | Customer favorite bartenders                  |
+| **notifications**      | In-app notifications                          |
+
+### Key Design Choices
+
+- **JSON fields** for flexible data (menu customizations stored in bookings)
+- **Simple availability** - date-based instead of complex recurring schedules
+- **Payment info** stored directly in bookings (no separate payments table)
+- **Menu customization** handled via JSON in bookings
 
 ### Database Relationships
 
 ```
-users ─┬─→ bartenders
-       ├─→ bookings
+users ─┬─→ bartender_profiles
+       ├─→ bookings (as customer)
+       ├─→ favorites
        └─→ messages
 
-packages ─→ bookings ─→ staff_assignments ─→ bartenders
+bartender_profiles ──→ packages ──→ bookings
+                    └─→ availability
 
-bookings ─→ payments
+bookings ──→ reviews ──→ conversations ──→ messages
 ```
 
 > 📄 **Full Schema:** See `backend/schema.sql` for the complete database structure, including indexes, constraints, and sample data.
 
 ---
 
-## 💻 Development
+## Development
 
 ### Project Conventions
 
-- ✅ Use **TypeScript** for all new code
 - ✅ Follow existing code structure and naming conventions
-- ✅ Write **meaningful commit messages** using conventional commits
+- ✅ Write meaningful commit messages
 - ✅ Test your changes before committing
 - ✅ Keep components small and focused
 - ✅ Use existing UI components from shadcn/ui when possible
 - ✅ Document complex logic with comments
-
-### Code Style
-
-The project uses ESLint for code quality. Run linting with:
-
-```bash
-# Frontend
-cd frontend
-npm run lint
-
-# Backend
-cd backend
-npm run lint  # if configured
-```
 
 ### Git Workflow
 
@@ -448,7 +456,7 @@ git push origin feature/your-feature-name
 
 ---
 
-## 🚢 Deployment
+## Deployment
 
 ### Frontend Deployment (Vercel)
 
@@ -480,7 +488,7 @@ For production, consider:
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -489,6 +497,7 @@ For production, consider:
 **Problem:** `ER_ACCESS_DENIED_ERROR` or connection refused
 
 **Solution:**
+
 ```bash
 # Verify MySQL is running
 mysql --version
@@ -507,6 +516,7 @@ mysql -u root -p -e "SHOW DATABASES;"
 **Problem:** `EADDRINUSE: address already in use :::5000`
 
 **Solution:**
+
 ```bash
 # Find and kill the process using the port
 lsof -ti:5000 | xargs kill -9
@@ -520,23 +530,10 @@ PORT=5001
 **Problem:** API requests failing from frontend
 
 **Solution:**
+
 1. Verify backend is running on `http://localhost:5000`
 2. Check `NEXT_PUBLIC_API_URL` in `.env.local`
 3. Ensure CORS is properly configured in backend
-
-#### TypeScript Compilation Errors
-
-**Problem:** Type errors preventing compilation
-
-**Solution:**
-```bash
-# Clear cache and reinstall
-rm -rf node_modules package-lock.json
-npm install
-
-# Check TypeScript version
-npx tsc --version
-```
 
 ### Getting Help
 
@@ -546,33 +543,21 @@ npx tsc --version
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 ### Upcoming Features
 
 - [ ] **Payment Integration** - Stripe/PayPal integration for online payments
 - [ ] **Photo Galleries** - Bartender portfolio photos and event galleries
-- [ ] **Review System** - Customer reviews and ratings for bartenders
 - [ ] **Calendar Integration** - Google Calendar and iCal sync
 - [ ] **Mobile App** - React Native mobile application
 - [ ] **Advanced Analytics** - Enhanced reporting and data visualization
-- [ ] **Multi-language Support** - Internationalization (i18n)
 - [ ] **Email Templates** - Branded email notifications
 - [ ] **SMS Notifications** - Twilio integration for text updates
-- [ ] **Inventory Management** - Full equipment and supply tracking
-
-### Future Enhancements
-
-- Real-time chat using WebSockets
-- Advanced search and filtering
-- Recommendation engine
-- Social media integration
-- Promotional codes and discounts
-- Loyalty rewards program
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions from the community! Here's how you can help:
 
@@ -589,19 +574,14 @@ We welcome contributions from the community! Here's how you can help:
 
 - Follow the existing code style and conventions
 - Write clear, descriptive commit messages
-- Add tests for new features when applicable
+- Test your changes before submitting
 - Update documentation as needed
-- Ensure all tests pass before submitting PR
-
-### Code of Conduct
-
-Please be respectful and constructive in all interactions. We're building a welcoming community for everyone.
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
 
 ```
 MIT License - Copyright (c) 2026 PopSip
@@ -610,18 +590,17 @@ Permission is hereby granted, free of charge, to any person obtaining a copy...
 
 ---
 
-## 💬 Support
+## Support
 
 Need help or have questions?
 
-- 📧 **Email:** support@popsip.com (if available)
+- 📧 **Email:** support@popsip.com
 - 🐛 **Issues:** [GitHub Issues](https://github.com/McAnnison/PopSip/issues)
 - 💬 **Discussions:** [GitHub Discussions](https://github.com/McAnnison/PopSip/discussions)
-- 📖 **Documentation:** Check our [Wiki](https://github.com/McAnnison/PopSip/wiki) (if available)
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 PopSip is built with amazing open-source technologies:
 
@@ -631,14 +610,10 @@ PopSip is built with amazing open-source technologies:
 - [Express](https://expressjs.com/) - Fast, unopinionated web framework
 - [MySQL](https://www.mysql.com/) - Reliable database system
 
-Special thanks to all contributors who have helped make PopSip better!
-
 ---
 
 <div align="center">
 
-**[⬆ Back to Top](#-popsip)**
+**[⬆ Back to Top](#popsip)**
 
 Made with ❤️ by the PopSip Team
-
-</div>
