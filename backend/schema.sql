@@ -1,18 +1,20 @@
-# Database Schema for MixMaster
-
+-- DROP DATABASE IF EXISTS popsip; --uncomment if schema is changed or sample data is editted
 -- Create database
-CREATE DATABASE IF NOT EXISTS mixmaster;
-USE mixmaster;
+CREATE DATABASE IF NOT EXISTS popsip;
+USE popsip;
 
--- Users table
-CREATE TABLE IF NOT EXISTS users (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  role ENUM('customer', 'bartender', 'admin') DEFAULT 'customer',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+-- USERS TABLE (combines both customer and bartender)
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    full_name VARCHAR(255) NOT NULL,
+    phone VARCHAR(50),
+    profile_image VARCHAR(500),
+    user_type ENUM('customer', 'bartender', 'admin') DEFAULT 'customer',
+    is_verified BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- Bartenders table (Enhanced for platform)
@@ -201,39 +203,3 @@ CREATE TABLE IF NOT EXISTS bartender_bookings (
   FOREIGN KEY (service_id) REFERENCES bartender_services(id) ON DELETE SET NULL
 );
 
--- Insert sample data
-INSERT INTO packages (name, description, price, duration, max_guests, includes) VALUES
-('Classic Package', 'Perfect for intimate gatherings with classic cocktails', 499.99, 3, 30, 'Professional bartender, Basic bar setup, 3 signature cocktails'),
-('Premium Package', 'Elevated experience with premium spirits and custom cocktails', 899.99, 4, 50, 'Professional bartender, Premium bar setup, 5 signature cocktails, Custom menu'),
-('Luxury Package', 'Ultimate cocktail experience with full service', 1499.99, 5, 100, '2 Professional bartenders, Full bar setup, Unlimited cocktails, Custom menu, Bar equipment');
-
-INSERT INTO cocktails (name, description, ingredients, difficulty) VALUES
-('Classic Margarita', 'A timeless favorite with tequila, lime, and triple sec', 'Tequila, Lime juice, Triple sec, Salt', 'easy'),
-('Old Fashioned', 'A sophisticated whiskey cocktail with bitters and sugar', 'Bourbon, Sugar, Bitters, Orange peel', 'medium'),
-('Mojito', 'Refreshing rum cocktail with mint and lime', 'White rum, Mint, Lime, Sugar, Soda water', 'easy'),
-('Espresso Martini', 'Coffee-infused vodka cocktail', 'Vodka, Coffee liqueur, Espresso, Simple syrup', 'medium');
-
--- Insert sample bartender data (Note: In production, use properly hashed passwords)
-INSERT INTO users (name, email, password, role) VALUES
-('John "The Mixologist" Smith', 'john.smith@example.com', '$2b$10$example_hashed_password_here_1', 'bartender'),
-('Sarah Martinez', 'sarah.martinez@example.com', '$2b$10$example_hashed_password_here_2', 'bartender'),
-('Mike "Cocktail King" Johnson', 'mike.johnson@example.com', '$2b$10$example_hashed_password_here_3', 'bartender');
-
-INSERT INTO bartenders (user_id, business_name, bio, experience_years, specialties, hourly_rate, phone, location, service_radius, profile_image, published, rating, total_bookings) VALUES
-(1, 'Elite Mixology', 'Award-winning bartender specializing in craft cocktails and molecular mixology. Over 10 years of experience serving high-profile events.', 10, 'Craft Cocktails, Molecular Mixology, Whiskey Specialist', 75.00, '555-0101', 'Los Angeles, CA', 50, 'https://images.unsplash.com/photo-1514933651103-005eec06c04b', true, 4.8, 127),
-(2, 'Fiesta Bartending', 'Passionate about creating memorable experiences through exceptional drinks and service. Specializing in tequila and rum-based cocktails.', 7, 'Tequila Expert, Rum Cocktails, Party Events', 65.00, '555-0102', 'Miami, FL', 30, 'https://images.unsplash.com/photo-1509281373149-e957c6296406', true, 4.9, 98),
-(3, 'The Cocktail Experience', 'Professional bartender bringing the party to you! Specializing in large events, corporate functions, and weddings.', 12, 'Wedding Specialist, Corporate Events, Flair Bartending', 85.00, '555-0103', 'New York, NY', 40, 'https://images.unsplash.com/photo-1470337458703-46ad1756a187', true, 4.7, 215);
-
-INSERT INTO bartender_services (bartender_id, service_name, description, price, duration, max_guests) VALUES
-(1, 'Craft Cocktail Experience', 'Premium craft cocktails with custom menu consultation', 350.00, 3, 30),
-(1, 'Molecular Mixology Show', 'Interactive cocktail experience with molecular techniques', 600.00, 4, 50),
-(2, 'Tequila Tasting Party', 'Guided tequila tasting with signature margaritas', 400.00, 3, 25),
-(2, 'Tropical Party Package', 'Full tropical bar setup with rum and tequila cocktails', 500.00, 4, 40),
-(3, 'Wedding Bar Service', 'Complete bar service for your special day', 800.00, 6, 100),
-(3, 'Corporate Event Package', 'Professional cocktail service for corporate functions', 700.00, 5, 75);
-
-INSERT INTO bartender_reviews (bartender_id, customer_name, customer_email, rating, review_text) VALUES
-(1, 'Emily Chen', 'emily@example.com', 5, 'John was absolutely amazing! His craft cocktails were the highlight of our party. Highly recommend!'),
-(1, 'David Wilson', 'david@example.com', 5, 'Professional, creative, and made our event unforgettable. The molecular cocktails were a huge hit!'),
-(2, 'Jessica Brown', 'jessica@example.com', 5, 'Sarah brought so much energy to our party! The margaritas were incredible and everyone loved her.'),
-(3, 'Michael Davis', 'michael@example.com', 4, 'Great service for our wedding. Very professional and the bar setup looked fantastic!');
