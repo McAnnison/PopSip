@@ -36,7 +36,13 @@
 
 ## Overview
 
+<<<<<<< HEAD
 **PopSip** is a comprehensive booking platform designed for cocktail catering and professional bartending services. The platform enables customers to browse cocktail packages, hire experienced bartenders for events, customize drink menus, and manage their bookings through an intuitive dashboard. Administrators gain access to powerful management tools including booking calendars, user management, payment tracking, and analytics. Bartenders can view their assigned events, manage availability, confirm attendance, and communicate with customers seamlessly.
+=======
+**PopSip** is a revolutionary two-sided marketplace connecting professional bartenders with customers seeking exceptional cocktail services for their events. The platform empowers bartenders to create their own booking business by building custom profiles, showcasing their skills, setting their own prices, and publishing unique service packages. Customers can browse a vibrant marketplace of talented mixologists, compare services, read reviews, and book the perfect bartender for their party or celebration.
+
+The platform features a modern, energetic design with a party vibe that reflects the excitement of the cocktail and entertainment industry. With its purple-pink gradient theme and intuitive interface, PopSip makes it easy for both bartenders to grow their business and customers to find exceptional service.
+>>>>>>> main
 
 Built as a modern monorepo, PopSip leverages Next.js 16 for the frontend and Express for the backend, with MySQL powering the data layer.
 
@@ -46,6 +52,7 @@ Built as a modern monorepo, PopSip leverages Next.js 16 for the frontend and Exp
 
 ### Customer Experience
 
+<<<<<<< HEAD
 - **Browse Packages** - Explore curated cocktail packages for any occasion
 - **Bartender Profiles** - View detailed profiles with photos, experience, and reviews
 - **Menu Customization** - Personalize drink menus with special requests
@@ -77,6 +84,36 @@ Built as a modern monorepo, PopSip leverages Next.js 16 for the frontend and Exp
 - **Customer Communication** - Chat with customers before events
 - **Review Responses** - Respond to customer feedback
 - **Earnings Overview** - Track completed bookings and earnings
+=======
+### 🍹 For Customers
+- **Browse Bartenders** - Explore a vibrant marketplace of professional bartenders and mixologists
+- **Advanced Filtering** - Search by location, specialties, rating, and price range
+- **Bartender Profiles** - View detailed profiles with experience, ratings, reviews, and portfolios
+- **Service Packages** - Compare custom service offerings from each bartender
+- **Real-Time Reviews** - Read authentic reviews from past clients
+- **Easy Booking** - Simple booking process with instant requests
+- **Party-Themed UI** - Energetic, colorful design that matches the celebration vibe
+
+### 🍸 For Bartenders
+- **Create Your Profile** - Build a professional profile showcasing your skills and experience
+- **Multi-Step Onboarding** - Guided 3-step registration process (Profile → Services → Review)
+- **Custom Service Packages** - Create and price your own unique service offerings
+- **Flexible Pricing** - Set your hourly rate and package prices
+- **Portfolio Showcase** - Upload images of your work and past events
+- **Availability Management** - Control your schedule and service area
+- **Publish When Ready** - Preview and edit before going live
+- **Booking Management** - Receive and manage booking requests
+- **Build Your Reputation** - Collect reviews and ratings from satisfied clients
+- **Grow Your Business** - Reach more customers through the marketplace
+
+### 👨‍💼 Platform Features
+- **Two-Sided Marketplace** - Connects bartenders with customers seamlessly
+- **Rating & Review System** - Build trust through authentic customer feedback
+- **Location-Based Services** - Find bartenders in your area or willing to travel
+- **Responsive Design** - Beautiful experience on desktop, tablet, and mobile
+- **Vibrant UI/UX** - Purple-pink gradient theme with party atmosphere
+- **Secure Platform** - Built with security best practices
+>>>>>>> main
 
 ---
 
@@ -316,11 +353,62 @@ http://localhost:5000/api
 
 ### Authentication Endpoints
 
+<<<<<<< HEAD
 | Method   | Endpoint           | Description       | Auth     |
 | -------- | ------------------ | ----------------- | -------- |
 | `POST` | `/auth/register` | Register new user | Public   |
 | `POST` | `/auth/login`    | User login        | Public   |
 | `GET`  | `/auth/me`       | Get current user  | Required |
+=======
+#### 🍹 Bartenders
+
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| `GET` | `/api/bartenders` | Get all published bartenders (with filters) | No |
+| `GET` | `/api/bartenders/:id` | Get specific bartender with services, reviews, portfolio | No |
+| `POST` | `/api/bartenders` | Create new bartender profile | User |
+| `PUT` | `/api/bartenders/:id` | Update bartender profile | Bartender |
+| `POST` | `/api/bartenders/:id/publish` | Publish bartender profile to marketplace | Bartender |
+| `POST` | `/api/bartenders/services` | Add service package to bartender | Bartender |
+| `POST` | `/api/bartenders/bookings` | Create booking request for bartender | Customer |
+| `POST` | `/api/bartenders/reviews` | Add review for bartender | Customer |
+
+**Filter Parameters for `/api/bartenders`:**
+- `location` - Filter by location (partial match)
+- `specialties` - Filter by specialties (partial match)
+- `minRating` - Minimum rating (e.g., 4.5)
+- `maxPrice` - Maximum hourly rate
+
+**Example Request:**
+```bash
+curl "http://localhost:5000/api/bartenders?location=Los Angeles&minRating=4.5"
+```
+
+**Example Response:**
+```json
+{
+  "success": true,
+  "count": 2,
+  "data": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "business_name": "Elite Mixology",
+      "bio": "Award-winning bartender...",
+      "experience_years": 10,
+      "specialties": "Craft Cocktails, Molecular Mixology",
+      "hourly_rate": 75.00,
+      "location": "Los Angeles, CA",
+      "rating": 4.8,
+      "total_bookings": 127,
+      "review_count": 45
+    }
+  ]
+}
+```
+
+#### 📦 Packages
+>>>>>>> main
 
 ### Public Endpoints
 
@@ -389,6 +477,7 @@ http://localhost:5000/api
 
 PopSip uses a simplified but powerful MySQL schema with 10 core tables:
 
+<<<<<<< HEAD
 | Table                        | Description                                   |
 | ---------------------------- | --------------------------------------------- |
 | **users**              | User accounts (customers, bartenders, admins) |
@@ -408,10 +497,28 @@ PopSip uses a simplified but powerful MySQL schema with 10 core tables:
 - **Simple availability** - date-based instead of complex recurring schedules
 - **Payment info** stored directly in bookings (no separate payments table)
 - **Menu customization** handled via JSON in bookings
+=======
+| Table | Description |
+|-------|-------------|
+| **users** | User accounts (customers, bartenders, admins) |
+| **bartenders** | Enhanced bartender profiles with business details, images, ratings |
+| **bartender_services** | Custom service packages offered by each bartender |
+| **bartender_portfolio** | Portfolio images and work showcases |
+| **bartender_availability** | Weekly availability schedules |
+| **bartender_reviews** | Customer reviews and ratings |
+| **bartender_bookings** | Direct bookings between customers and bartenders |
+| **packages** | Cocktail packages and pricing (legacy) |
+| **cocktails** | Cocktail recipes and ingredients |
+| **bookings** | Event bookings and details (legacy) |
+| **staff_assignments** | Bartender assignments to events |
+| **payments** | Payment records and transactions |
+| **messages** | In-app communication between users |
+>>>>>>> main
 
 ### Database Relationships
 
 ```
+<<<<<<< HEAD
 users ─┬─→ bartender_profiles
        ├─→ bookings (as customer)
        ├─→ favorites
@@ -421,6 +528,18 @@ bartender_profiles ──→ packages ──→ bookings
                     └─→ availability
 
 bookings ──→ reviews ──→ conversations ──→ messages
+=======
+users ─┬─→ bartenders ─┬─→ bartender_services
+       │                ├─→ bartender_portfolio
+       │                ├─→ bartender_availability
+       │                ├─→ bartender_reviews
+       │                └─→ bartender_bookings
+       ├─→ bookings
+       └─→ messages
+
+bartender_bookings ─→ bartender_services
+bartender_reviews ─→ bartender_bookings (optional)
+>>>>>>> main
 ```
 
 > 📄 **Full Schema:** See `backend/schema.sql` for the complete database structure, including indexes, constraints, and sample data.
