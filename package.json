@@ -6,7 +6,10 @@
     "dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
     "start": "cd frontend && npm run start",
-    "vercel-build": "cd frontend && npm install && npm run build"
+    "vercel-build": "cd frontend && npm install && npm run build",
+    "test": "npm --prefix backend test && npm --prefix frontend test",
+    "test:backend": "npm --prefix backend test",
+    "test:frontend": "npm --prefix frontend test"
   },
   "dependencies": {
     "next": "16.1.6"
