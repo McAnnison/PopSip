@@ -123,9 +123,9 @@ export default function JoinBartenderPage() {
   const prevStep = () => setStep(step - 1);
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50">
       {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+      <header className="glass-nav sticky top-0 z-50">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <Link href="/" className="text-3xl font-bold gradient-text">🍹 PopSip</Link>
           <nav className="flex gap-2">
@@ -144,7 +144,7 @@ export default function JoinBartenderPage() {
                 <div
                   className={`w-12 h-12 rounded-full flex items-center justify-center font-bold ${
                     s <= step
-                      ? 'bg-linear-to-r from-orange-600 to-red-600 text-white'
+                      ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white'
                       : 'bg-gray-200 text-gray-500'
                   }`}
                 >
@@ -153,7 +153,7 @@ export default function JoinBartenderPage() {
                 {s < 3 && (
                   <div
                     className={`w-24 h-1 ${
-                      s < step ? 'bg-linear-to-r from-orange-600 to-red-600' : 'bg-gray-200'
+                      s < step ? 'bg-gradient-to-r from-orange-600 to-red-600' : 'bg-gray-200'
                     }`}
                   />
                 )}
@@ -168,7 +168,7 @@ export default function JoinBartenderPage() {
         </div>
 
         {/* Page Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-fade-in-up">
           <h1 className="text-5xl font-extrabold mb-4">
             <span className="gradient-text">Join PopSip</span>
           </h1>
@@ -178,7 +178,7 @@ export default function JoinBartenderPage() {
         </div>
 
         {/* Form */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 border-2 border-orange-100">
+        <div className="glass-card rounded-3xl shadow-2xl p-8 border border-orange-100/60 animate-fade-in-up-1">
           <form onSubmit={handleSubmit}>
             {/* Step 1: Profile Information */}
             {step === 1 && (
@@ -194,7 +194,7 @@ export default function JoinBartenderPage() {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="John Smith"
                     />
                   </div>
@@ -206,7 +206,7 @@ export default function JoinBartenderPage() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -218,7 +218,7 @@ export default function JoinBartenderPage() {
                       required
                       value={formData.password}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="••••••••"
                     />
                   </div>
@@ -230,7 +230,7 @@ export default function JoinBartenderPage() {
                       required
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -241,7 +241,7 @@ export default function JoinBartenderPage() {
                       name="business_name"
                       value={formData.business_name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="Elite Mixology"
                     />
                   </div>
@@ -253,7 +253,7 @@ export default function JoinBartenderPage() {
                       required
                       value={formData.experience_years}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="5"
                     />
                   </div>
@@ -265,7 +265,7 @@ export default function JoinBartenderPage() {
                       required
                       value={formData.location}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="Los Angeles, CA"
                     />
                   </div>
@@ -276,7 +276,7 @@ export default function JoinBartenderPage() {
                       name="service_radius"
                       value={formData.service_radius}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="30"
                     />
                   </div>
@@ -288,7 +288,7 @@ export default function JoinBartenderPage() {
                       required
                       value={formData.hourly_rate}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="75"
                     />
                   </div>
@@ -299,7 +299,7 @@ export default function JoinBartenderPage() {
                       name="profile_image"
                       value={formData.profile_image}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                       placeholder="https://example.com/photo.jpg"
                     />
                   </div>
@@ -313,7 +313,7 @@ export default function JoinBartenderPage() {
                     value={formData.bio}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     placeholder="Tell us about your bartending experience and what makes you unique..."
                   />
                 </div>
@@ -326,7 +326,7 @@ export default function JoinBartenderPage() {
                     required
                     value={formData.specialties}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-3 glass-input rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     placeholder="Craft Cocktails, Molecular Mixology, Whiskey Specialist"
                   />
                 </div>
@@ -335,7 +335,7 @@ export default function JoinBartenderPage() {
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="px-8 py-3 bg-linear-to-r from-orange-600 to-red-600 text-white rounded-lg hover:from-orange-700 hover:to-red-700 font-bold shadow-lg transition-all"
+                    className="px-8 py-3 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-lg hover:from-orange-700 hover:to-red-700 font-bold shadow-lg transition-all btn-lift"
                   >
                     Next: Add Services →
                   </button>
@@ -352,7 +352,7 @@ export default function JoinBartenderPage() {
                 </p>
 
                 {services.map((service, index) => (
-                  <div key={index} className="p-6 border-2 border-orange-200 rounded-xl bg-orange-50">
+                  <div key={index} className="p-6 glass rounded-xl border border-orange-200/60">
                     <div className="flex justify-between items-center mb-4">
                       <h3 className="text-lg font-bold text-orange-900">Service {index + 1}</h3>
                       {services.length > 1 && (
@@ -440,7 +440,7 @@ export default function JoinBartenderPage() {
                   <button
                     type="button"
                     onClick={nextStep}
-                    className="px-8 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-bold shadow-lg transition-all"
+                    className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-bold shadow-lg transition-all btn-lift"
                   >
                     Next: Review →
                   </button>
@@ -454,7 +454,7 @@ export default function JoinBartenderPage() {
                 <h2 className="text-3xl font-bold text-purple-900 mb-6">✅ Review Your Profile</h2>
                 
                 <div className="space-y-6">
-                  <div className="p-6 bg-purple-50 rounded-xl">
+                  <div className="p-6 glass rounded-xl border border-purple-200/40">
                     <h3 className="text-xl font-bold text-purple-900 mb-4">Personal Information</h3>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
@@ -486,7 +486,7 @@ export default function JoinBartenderPage() {
                     </div>
                   </div>
 
-                  <div className="p-6 bg-pink-50 rounded-xl">
+                  <div className="p-6 glass rounded-xl border border-pink-200/40">
                     <h3 className="text-xl font-bold text-purple-900 mb-4">Services ({services.length})</h3>
                     <div className="space-y-3">
                       {services.map((service, index) => (
@@ -508,7 +508,7 @@ export default function JoinBartenderPage() {
                   </div>
                 </div>
 
-                <div className="bg-linear-to-r from-purple-100 to-pink-100 p-6 rounded-xl">
+                <div className="glass p-6 rounded-xl border border-purple-200/40">
                   <h3 className="font-bold text-purple-900 mb-2">📝 Next Steps</h3>
                   <ul className="space-y-2 text-sm text-gray-700">
                     <li>✅ Your profile will be created but not published yet</li>
@@ -528,7 +528,7 @@ export default function JoinBartenderPage() {
                   </button>
                   <button
                     type="submit"
-                    className="px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:from-purple-700 hover:to-pink-700 font-bold text-lg shadow-xl transition-all"
+                    className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:from-purple-700 hover:to-pink-700 font-bold text-lg shadow-xl transition-all btn-lift"
                   >
                     🎉 Create My Profile
                   </button>

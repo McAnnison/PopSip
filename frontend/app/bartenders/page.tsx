@@ -78,17 +78,17 @@ export default function BartendersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
       {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+      <header className="glass-nav sticky top-0 z-50">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href="/" className="text-3xl font-bold gradient-text">🍹 PopSip</Link>
+          <Link href="/" className="text-3xl font-bold gradient-text hover:opacity-80 transition-opacity">🍹 PopSip</Link>
 
           <nav className="flex gap-2">
             <button className="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg font-semibold">Browse Bartenders</button>
             <button className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Packages</button>
             <button className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Become a Bartender</button>
-            <button className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg neon-glow">
+            <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg neon-glow btn-lift">
               Book Now
             </button>
           </nav>
@@ -97,7 +97,7 @@ export default function BartendersPage() {
 
       <main className="container mx-auto px-4 py-12">
         {/* Page Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-fade-in-up">
           <h1 className="text-6xl font-extrabold mb-4">
             <span className="gradient-text">Find Your Perfect Bartender</span>
           </h1>
@@ -108,7 +108,7 @@ export default function BartendersPage() {
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-2xl shadow-xl p-6 mb-8 border-2 border-purple-100">
+        <div className="glass-card rounded-2xl p-6 mb-8 border border-purple-100/60 animate-fade-in-up-1">
           <h3 className="text-xl font-bold mb-4 text-purple-900">🔍 Filter Bartenders</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
@@ -119,7 +119,7 @@ export default function BartendersPage() {
                 value={filters.location}
                 onChange={handleFilterChange}
                 placeholder="e.g., Los Angeles, CA"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
             <div>
@@ -130,7 +130,7 @@ export default function BartendersPage() {
                 value={filters.specialties}
                 onChange={handleFilterChange}
                 placeholder="e.g., Craft Cocktails"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               />
             </div>
             <div>
@@ -139,7 +139,7 @@ export default function BartendersPage() {
                 name="minRating"
                 value={filters.minRating}
                 onChange={handleFilterChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               >
                 <option value="">Any Rating</option>
                 <option value="4.5">4.5+ Stars</option>
@@ -153,7 +153,7 @@ export default function BartendersPage() {
                 name="maxPrice"
                 value={filters.maxPrice}
                 onChange={handleFilterChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               >
                 <option value="">Any Price</option>
                 <option value="50">Under $50</option>
@@ -165,13 +165,13 @@ export default function BartendersPage() {
           <div className="flex gap-3 mt-4">
             <button
               onClick={applyFilters}
-              className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-semibold shadow-lg transition-all"
+              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-semibold shadow-lg transition-all btn-lift"
             >
               Apply Filters
             </button>
             <button
               onClick={clearFilters}
-              className="px-6 py-2 border-2 border-gray-300 rounded-lg hover:bg-gray-50 font-semibold transition-all"
+              className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-semibold transition-all"
             >
               Clear All
             </button>
@@ -179,7 +179,7 @@ export default function BartendersPage() {
         </div>
 
         {/* Results Count */}
-        <div className="mb-6">
+        <div className="mb-6 animate-fade-in-up-2">
           <p className="text-gray-600 font-medium">
             {loading ? 'Loading...' : `${bartenders.length} bartenders found`}
           </p>
@@ -192,25 +192,26 @@ export default function BartendersPage() {
             <p className="mt-4 text-gray-600 font-medium">Finding amazing bartenders...</p>
           </div>
         ) : bartenders.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-2xl shadow-xl">
+          <div className="text-center py-20 glass-card rounded-2xl animate-scale-in">
             <div className="text-6xl mb-4">😕</div>
             <h3 className="text-2xl font-bold text-gray-800 mb-2">No bartenders found</h3>
             <p className="text-gray-600">Try adjusting your filters or check back later!</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {bartenders.map((bartender) => (
+            {bartenders.map((bartender, index) => (
               <div
                 key={bartender.id}
-                className="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border-2 border-purple-100"
+                className="glass-card rounded-2xl overflow-hidden card-hover border border-purple-100/60 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.06}s` }}
               >
-                <div className="relative h-64 bg-linear-to-br from-purple-200 to-pink-200">
+                <div className="relative h-64 bg-gradient-to-br from-purple-200 to-pink-200">
                   <Image
                     src={bartender.profile_image || 'https://via.placeholder.com/400x300'}
                     alt={bartender.name}
                     className="w-full h-full object-cover"
                   ></Image>
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-bold text-purple-900">
+                  <div className="absolute top-4 right-4 glass px-3 py-1 rounded-full font-bold text-purple-900">
                     ⭐ {bartender.rating.toFixed(1)}
                   </div>
                 </div>
@@ -230,14 +231,14 @@ export default function BartendersPage() {
                       {bartender.specialties?.split(',').slice(0, 3).map((specialty, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium"
+                          className="px-3 py-1 bg-purple-100/80 text-purple-700 rounded-full text-sm font-medium backdrop-blur-sm"
                         >
                           {specialty.trim()}
                         </span>
                       ))}
                     </div>
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                  <div className="flex items-center justify-between pt-4 border-t border-purple-100/60">
                     <div>
                       <div className="text-2xl font-bold text-purple-900">
                         ${bartender.hourly_rate}
@@ -247,7 +248,7 @@ export default function BartendersPage() {
                     </div>
                     <a
                       href={`/bartenders/${bartender.id}`}
-                      className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-semibold shadow-lg transition-all"
+                      className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-semibold shadow-lg transition-all btn-lift"
                     >
                       View Profile
                     </a>
