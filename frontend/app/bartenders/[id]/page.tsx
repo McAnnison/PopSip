@@ -127,7 +127,7 @@ export default function BartenderProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-orange-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 flex items-center justify-center">
         <div className="text-center">
           <div className="inline-block w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin"></div>
           <p className="mt-4 text-gray-600 font-medium">Loading bartender profile...</p>
@@ -138,7 +138,7 @@ export default function BartenderProfilePage() {
 
   if (!bartender) {
     return (
-      <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-orange-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">😕</div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Bartender not found</h2>
@@ -149,15 +149,15 @@ export default function BartenderProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
       {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+      <header className="glass-nav sticky top-0 z-50">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <Link href="/" className="text-3xl font-bold gradient-text">🍹 PopSip</Link>
+          <Link href="/" className="text-3xl font-bold gradient-text hover:opacity-80 transition-opacity">🍹 PopSip</Link>
           <nav className="flex gap-2">
             <Link href="/bartenders" className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Browse Bartenders</Link>
             <button className="px-4 py-2 hover:bg-purple-100 rounded-lg transition-colors">Packages</button>
-            <button className="px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg neon-glow">
+            <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all font-semibold shadow-lg neon-glow btn-lift">
               Book Now
             </button>
           </nav>
@@ -165,7 +165,7 @@ export default function BartenderProfilePage() {
       </header>
 
       {/* Cover Image */}
-      <div className="relative h-80 bg-linear-to-br from-purple-400 via-pink-400 to-orange-400">
+      <div className="relative h-80 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400">
         {bartender.cover_image && (
           <Image
             src={bartender.cover_image}
@@ -177,7 +177,7 @@ export default function BartenderProfilePage() {
 
       <main className="container mx-auto px-4 -mt-32 relative z-10 pb-20">
         {/* Profile Card */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 mb-8 border-2 border-purple-100">
+        <div className="glass-card rounded-3xl shadow-2xl p-8 mb-8 border border-purple-100/60 animate-fade-in-up">
           <div className="flex flex-col md:flex-row gap-8">
             {/* Profile Image */}
             <div className="shrink-0">
@@ -230,7 +230,7 @@ export default function BartenderProfilePage() {
                   {bartender.specialties?.split(',').map((specialty, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-2 bg-linear-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full font-medium"
+                      className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full font-medium"
                     >
                       {specialty.trim()}
                     </span>
@@ -244,7 +244,7 @@ export default function BartenderProfilePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Services Column */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 border-2 border-purple-100">
+            <div className="glass-card rounded-2xl shadow-xl p-8 mb-8 border border-purple-100/60 animate-fade-in-up-1">
               <h2 className="text-3xl font-bold text-purple-900 mb-6">🍸 Services & Packages</h2>
               <div className="space-y-4">
                 {bartender.services && bartender.services.length > 0 ? (
@@ -279,7 +279,7 @@ export default function BartenderProfilePage() {
             </div>
 
             {/* Reviews */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-purple-100">
+            <div className="glass-card rounded-2xl shadow-xl p-8 border border-purple-100/60 animate-fade-in-up-2">
               <h2 className="text-3xl font-bold text-purple-900 mb-6">⭐ Customer Reviews</h2>
               <div className="space-y-6">
                 {bartender.reviews && bartender.reviews.length > 0 ? (
@@ -310,17 +310,17 @@ export default function BartenderProfilePage() {
 
           {/* Booking Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-xl p-6 sticky top-24 border-2 border-purple-100">
+            <div className="glass-card rounded-2xl shadow-xl p-6 sticky top-24 border border-purple-100/60 animate-fade-in-up">
               <h3 className="text-2xl font-bold text-purple-900 mb-6">📅 Book This Bartender</h3>
               
               {selectedService ? (
-                <div className="mb-6 p-4 bg-purple-50 rounded-xl">
+                <div className="mb-6 p-4 glass rounded-xl border border-purple-200/60">
                   <div className="font-semibold text-purple-900 mb-2">Selected Service:</div>
                   <div className="text-lg font-bold text-purple-700">{selectedService.service_name}</div>
                   <div className="text-2xl font-extrabold text-purple-900 mt-2">${selectedService.price}</div>
                 </div>
               ) : (
-                <div className="mb-6 p-4 bg-gray-50 rounded-xl">
+                <div className="mb-6 p-4 glass rounded-xl border border-gray-200/60">
                   <p className="text-gray-600">Select a service to continue</p>
                 </div>
               )}
@@ -331,7 +331,7 @@ export default function BartenderProfilePage() {
                   disabled={!selectedService}
                   className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg transition-all ${
                     selectedService
-                      ? 'bg-linear-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
+                      ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 btn-lift'
                       : 'bg-gray-200 text-gray-500 cursor-not-allowed'
                   }`}
                 >
@@ -346,7 +346,7 @@ export default function BartenderProfilePage() {
                       required
                       value={bookingData.customer_name}
                       onChange={(e) => setBookingData({ ...bookingData, customer_name: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
                   <div>
@@ -356,7 +356,7 @@ export default function BartenderProfilePage() {
                       required
                       value={bookingData.customer_email}
                       onChange={(e) => setBookingData({ ...bookingData, customer_email: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
                   <div>
@@ -366,7 +366,7 @@ export default function BartenderProfilePage() {
                       required
                       value={bookingData.customer_phone}
                       onChange={(e) => setBookingData({ ...bookingData, customer_phone: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
                   <div>
@@ -376,7 +376,7 @@ export default function BartenderProfilePage() {
                       required
                       value={bookingData.event_date}
                       onChange={(e) => setBookingData({ ...bookingData, event_date: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
                   <div>
@@ -386,7 +386,7 @@ export default function BartenderProfilePage() {
                       required
                       value={bookingData.event_time}
                       onChange={(e) => setBookingData({ ...bookingData, event_time: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
                   <div>
@@ -396,7 +396,7 @@ export default function BartenderProfilePage() {
                       required
                       value={bookingData.event_location}
                       onChange={(e) => setBookingData({ ...bookingData, event_location: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
                   <div>
@@ -406,7 +406,7 @@ export default function BartenderProfilePage() {
                       required
                       value={bookingData.guest_count}
                       onChange={(e) => setBookingData({ ...bookingData, guest_count: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
                   <div>
@@ -415,12 +415,12 @@ export default function BartenderProfilePage() {
                       value={bookingData.special_requests}
                       onChange={(e) => setBookingData({ ...bookingData, special_requests: e.target.value })}
                       rows={3}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-2 glass-input rounded-lg focus:ring-2 focus:ring-purple-500"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-bold shadow-lg transition-all"
+                    className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 font-bold shadow-lg transition-all btn-lift"
                   >
                     Send Booking Request
                   </button>
