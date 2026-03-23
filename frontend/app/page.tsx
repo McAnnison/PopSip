@@ -1,5 +1,5 @@
-import React from "react";
 import Image from "next/image";
+import React from "react";
 
 export default function LandingPage() {
   return (
@@ -43,8 +43,8 @@ export default function LandingPage() {
             src="https://images.unsplash.com/photo-1582571352032-448f7924c4b9"
             className="rounded-2xl shadow-lg"
             alt="Cocktail Bar"
-            width={1200}
-            height={800}
+            width={800}
+            height={600}
           />
         </div>
       </section>
@@ -55,9 +55,12 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-4 gap-6">
           {[1, 2, 3, 4].map((item) => (
             <div key={item} className="bg-white p-4 rounded-xl shadow">
-              <img
-                src="https://images.unsplash.com/photo-1541542684-4a0b7baf54b7"
+              <Image
+           src="https://images.unsplash.com/photo-1541542684-4a0b7baf54b7"
                 className="rounded-xl mb-4"
+                alt={`Portrait of Mixologist ${item}`}
+                width={600}
+                height={400}
               />
               <h3 className="font-semibold">Mixologist {item}</h3>
               <p className="text-sm text-gray-500">Cocktail Specialist</p>
